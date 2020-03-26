@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+
+    function TL()
+    {
+        var a = (document.getElementById("a1").value);
+        var b = parseInt(document.getElementById("b1").value);
+
+        if (a === "E" && b===2) {
+
+            document.getElementById("c1").value = "2000";
+        }
+        else {
+            if (a === "E" && b===3) {
+
+                document.getElementById("c1").value = "3000";
+            }
+            else{
+                if (a === "M" && b===2) {
+
+                    document.getElementById("c1").value = "3000";
+                }
+                else{
+                    if (a === "M" && b===3) {
+
+                        document.getElementById("c1").value = "4000";
+                    }
+                    else{
+                        document.getElementById("c1").value = "Không đúng";
+                    }
+
+                }
+            }
+        }
+
+    }
+</script>
+<body>
+<table border="1">
+    <tr>
+        <th colspan="3">BẢNG TÍNH LƯƠNG</th>
+    </tr>
+    <tr>
+        <td>Grade</td>
+        <td>Experience</td>
+        <td>Salary</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" id="a1"/> <br>
+        </td>
+        <td>
+            <input type="text" id="b1"/> <br>
+        </td>
+        <td>
+            <input type="text" id="c1"/> <br>
+        </td>
+    </tr>
+
+
+</table>
+<input type="button" value="Tính lương" onclick="TL()"/> <br>
+</body>
+</html>
