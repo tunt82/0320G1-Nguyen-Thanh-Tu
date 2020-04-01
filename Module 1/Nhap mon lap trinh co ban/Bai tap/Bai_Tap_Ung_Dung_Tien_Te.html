@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function Cv() {
+        let a = parseInt(document.getElementById("amout").value);
+        let b = document.getElementById("fromCurrency").value;
+        let c = document.getElementById("toCurrency").value;
+        let d=1;
+
+        if (b === "USD" && c === "VND"){
+            d = a*2300 ;
+            document.getElementById("d").innerHTML=d ;
+        }
+        else {
+            if (b === "VND" && c === "USD"){
+                d = a/2300 ;
+                document.getElementById("d").innerHTML=d ;
+            }
+            else {
+                document.getElementById("d").innerHTML="Chọn loại tiền tệ" ;
+            }
+        }
+    }
+
+</script>
+<body>
+<table>
+    <tr>
+        <th> Amount </th>
+        <th style="padding-left: 80px"> From currency </th>
+        <th style="padding-left: 80px"> To currency </th>
+        <th style="padding-left: 80px"> Resulst </th>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" id="amout"/>
+        </td>
+        <!--      Lựa chọn tiền để đổi-->
+        <td style="padding-left: 80px">
+            <select id="fromCurrency">
+                <option value="USD"> USD </option>
+                <option value="VND"> VND </option>
+            </select>
+        </td>
+        <!--      Lựa chọn tiền muốn đổi sang-->
+        <td style="padding-left: 100px" >
+            <select id="toCurrency">
+                <option value="VND"> VND </option>
+                <option value="USD"> USD </option>
+            </select>
+        </td>
+        <!--      Resulst -->
+        <td id="d" style="padding-left: 80px">
+            <input type="text" />
+        </td>
+
+    </tr>
+</table>
+
+<br>
+<input type="button" value="Convert" onclick="Cv()"/> <br>
+
+</body>
+</html>

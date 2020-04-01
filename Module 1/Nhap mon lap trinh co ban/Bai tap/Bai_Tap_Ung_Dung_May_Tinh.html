@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="a">
+<input type="text" id="b">
+<input type="text" value="Resulst">
+<input type="text" id="c">
+<br><br>
+
+<input type="button" value="add(+)" onclick="add()" style="padding-left: 10px;padding-right: 40px">
+<input type="button" value="sub(-)" onclick="sub()" style="padding-left: 10px;padding-right: 35px">
+<input type="button" value="mul(-)" onclick="mul()" style="padding-left: 10px;padding-right: 35px">
+<input type="button" value="div(-)" onclick="div()" style="padding-left: 10px;padding-right: 35px">
+
+
+<script>
+  let  number1 =document.getElementById("a") ;
+  let  number2 = document.getElementById("b");
+
+function add() {
+    document.getElementById("c").value =  parseInt(number1.value) +  parseInt(number2.value) ;
+    }
+function sub() {
+      document.getElementById("c").value =  parseInt(number1.value) -  parseInt(number2.value) ;
+  }
+function mul() {
+      document.getElementById("c").value =  parseInt(number1.value) * parseInt(number2.value) ;
+  }
+function div() {
+    if(parseInt(document.getElementById("b").value) === 0) {
+        document.getElementById("c").value = "Nhập lại giá trị" ;
+    }
+    else {
+        document.getElementById("c").value =  parseInt(number1.value) /  parseInt(number2.value) ;
+    }
+
+  }
+
+
+</script>
+
+</body>
+</html>
