@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" value="Vật Lý" style="width: 70px; padding-left: 20px">
+<input type="text" id="a" style="width: 70px; padding-left: 20px"" > <br>
+<input type="text" value="Toán" style="width: 70px; padding-left: 20px">
+<input type="text" id="b" style="width: 70px; padding-left: 20px"> <br>
+<input type="text" value="Hóa học" style="width: 70px; padding-left: 20px">
+<input type="text" id="c" style="width: 70px; padding-left: 20px"> <br><br>
+<input type="button" value="Điểm trung bình" onclick="ave()" style="width: 120px; padding-left: 0px">
+<input type="text" id="d" style="width: 70px; padding-left: 20px"> <br>
+
+<script>
+    let l= document.getElementById("a");
+    let t= document.getElementById("b");
+    let h= document.getElementById("c");
+    let tb ;
+
+    function ave() {
+        tb = (parseInt(l.value) + parseInt(t.value) + parseInt(h.value) )/3;
+        document.getElementById("d").value =tb ;
+    }
+
+
+
+</script>
+
+
+</body>
+</html>
