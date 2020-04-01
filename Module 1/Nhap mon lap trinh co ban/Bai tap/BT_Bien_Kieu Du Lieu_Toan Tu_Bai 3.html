@@ -6,23 +6,24 @@
 </head>
 <body>
 
-<input type="text" value="Nhập vào giá trị độ C">
+<input type="text" value="Nhập vào bán kính hình tròn">
 <input type="text" id="a"> <br><br>
 <button onclick="convert()"> Convert </button> <br><br>
-<input type="text" value="Giá trị độ F">
+<input type="text" value="Chu vi hình tròn là">
 <input type="text" id="b">
 
 
 <script>
-    let c = document.getElementById("a") ;
-    let f ;
+    const pi=3.14 ;
+    let r = document.getElementById("a") ;
+    let chuVi ;
 
     function convert() {
-       f=(9*parseInt(c.value))/5 + 32 ;
-       document.getElementById("b").value=f ;
+        chuVi= pi*2*parseFloat(r.value) ;
+        document.getElementById("b").value=chuVi ;
     }
-    
-    
+
+
 </script>
 </body>
 </html>

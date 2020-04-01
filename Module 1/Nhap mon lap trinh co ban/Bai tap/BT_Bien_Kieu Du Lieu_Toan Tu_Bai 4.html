@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text" value="Nhập vào bán kính hình tròn">
+<input type="text" id="a"> <br><br>
+<button onclick="convert()"> Convert </button> <br><br>
+<input type="text" value="Diện tích hình tròn là">
+<input type="text" id="b">
+
+
+<script>
+    const pi=3.14 ;
+    let r = document.getElementById("a") ;
+    let dienTich ;
+
+    function convert() {
+        dienTich= pi*parseFloat(r.value)*parseFloat(r.value) ;
+        document.getElementById("b").value=dienTich.toFixed(2) ;
+    }
+
+
+</script>
+</body>
+</html>
