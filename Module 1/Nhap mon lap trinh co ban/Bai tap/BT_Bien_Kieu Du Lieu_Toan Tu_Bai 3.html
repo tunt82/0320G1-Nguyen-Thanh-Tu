@@ -9,18 +9,18 @@
 <input type="text" value="Nhập vào bán kính hình tròn">
 <input type="text" id="a"> <br><br>
 <button onclick="convert()"> Convert </button> <br><br>
-<input type="text" value="Chu vi hình tròn là">
+<input type="text" value="Diện tích hình tròn là">
 <input type="text" id="b">
 
 
 <script>
     const pi=3.14 ;
     let r = document.getElementById("a") ;
-    let chuVi ;
+    let dienTich ;
 
     function convert() {
-        chuVi= pi*2*parseFloat(r.value) ;
-        document.getElementById("b").value=chuVi ;
+        dienTich= pi*parseFloat(r.value)*parseFloat(r.value) ;
+        document.getElementById("b").value=dienTich.toFixed(2) ;
     }
 
 

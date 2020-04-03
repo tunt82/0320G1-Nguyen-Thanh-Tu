@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset=utf-8/>
+    <title>JS Bin</title>
+    <style>
+        body {
+            padding-top: 50px
+        }
+    </style>
 </head>
+<script>
+
+
+    function position() {
+        let value = Number(document.getElementById("b").value);
+        console.log(value);
+        let x = [3, 6, -1, 8, 9];
+        let y = -1;
+
+        for (let i = 0; i < x.length; i++) {
+
+            if (value === x[i]) {
+                y = i;
+            }
+        }
+        document.getElementById("c").value = `gia tri ${x[y]} o vi tri ${y}`;
+
+    }
+
+</script>
 <body>
+<input type="button" value="Nhập giá trị" onclick="position()">
+<input type="text" id="b">
+<input type="text" id="c">
+
 
 </body>
+
 </html>

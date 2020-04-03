@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
 <body>
+
+ // Tạo form khai thông tin cá nhân
 <form >
     <fieldset style="background: yellow; margin-right: 95%;">
         <legend style="color: blue"> <strong>Personal</strong> </legend>
             Fisrt name: <br>
-            <input type="text" name="First name" value="Nguyễn"/> <br/>
+            <input type="text" name="First name" /> <br/>
             Last name: <br/>
-            <input type="text" name="Last name"value="Thanh Tú"/> <br/> <br/>
+            <input type="text" name="Last name" /> <br/> <br/>
             <input type="button" value="Submit" />
-            <input type="button" value="Reset" />
+            <input type="button" value="Reset" onclick="reset()" />
     </fieldset>
 
 </form>
 <br/> <br/> <br/> <br/>
+ // Tạo form chọn giới tính
+
 <form>
     <fieldset style="background: aqua; margin-right: 85% ">
         <legend style="color: red"> <strong> Gender select </strong> </legend>
@@ -26,5 +31,17 @@
             <input type="radio" name="gender" value="other" checke> Other <br>
     </fieldset>
 </form>
+ <br/> <br/> <br/> <br/>
+ // Tạo form đăng nhập
+<form>
+    <fieldset style="background: aquamarine; margin-right:85%">
+        <legend> <strong> Đăng nhập </strong> </legend>
+        User name: <br>
+        <input type="text" name="User name"> <br>
+        User password: <br>
+        <input type="password" name="User password">
+    </fieldset>
+</form>
+
 </body>
 </html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<input type="text" value="Nhập năm" style="width: 120px" align="right" >
+<input type="text" id="year" style="width: 120px"> <br><br>
+<input type="text" value="resulst" style="width: 120px">
+<input type="text" id="resulst" style="width: 120px"> <br><br>
+<input type="button" value="Tính toán" onclick="namnhuan()" >
+<input type="button" value="Reset" onclick="reset()" >
+
+<body>
+<script>
+    let year = document.getElementById("year");
+
+    function namnhuan() {
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                if (year % 400 == 0) {
+                    document.getElementById("resulst").value = "Năm nhuận";
+                } else {
+                    document.getElementById("resulst").value = "Năm không nhuận";
+                }
+            } else {
+                document.getElementById("resulst").value = "Năm nhuận";
+            }
+        } else {
+            document.getElementById("resulst").value = "Năm không nhuận";
+        }
+    }
+
+   function reset() {
+       document.getElementById("year").value = " " ;
+       document.getElementById("resulst").value = " " ;
+   }
+
+
+
+</script>
+
+</body>
+</html>
