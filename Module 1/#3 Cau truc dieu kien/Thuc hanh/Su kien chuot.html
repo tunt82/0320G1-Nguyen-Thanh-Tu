@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="bong" src="1.png" height="400" width="400" style="position: absolute; left: 50px"/>
+<input type="button" onclick="rightClick()" value="clickMe" style="height: 40px ; width: 100px ; color: #004C00 ; background-color: yellow ; position: absolute ; top: 364px ; left: 50px">
+
+<script>
+    function rightClick() {
+        let element = document.getElementById("bong") ;
+        element.style.left = parseInt(element.style.left) + 10 + "px" ;
+    }
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1 { text-align: center; font-size: 50px}
+
+    </style>
+
+    <h1> FURAMA RESORT </h1>
+    <h2><i> KHU NGHỈ DƯỠNG ĐẲNG CẤP QUỐC TẾ </i></h2>
+
+</head>
+<body>
+<div id="main">
+    <div id="head">
+    </div>
+    <div id="head-link">
+    </div>
+    <div id="left">
+    </div>
+    <div id="content">
+    </div>
+    <div id="right">
+    </div>
+    <div id="footer">
+    </div>
+</div>
+
+<script>
+    let name ;
+    let cmnd ;
+    let birthday ;
+    let email ;
+    let address ;
+    let typeService ;
+    let typeRoom ;
+    let discount ;
+    let quantityIncluded ;
+    let renDays ;
+    let totalPay ;
+
+    name = prompt("Input name: ") ;
+    cmnd = prompt("Input cmnd: ")
+    birthday = prompt("Input birthday: ") ;
+    email = prompt("Input email: ") ;
+    address = prompt("Input address: ") ;
+    typeService = prompt("Input typeService: ") ;
+    typeRoom = prompt("Input typeRoom: ") ;
+    discount = prompt("Input discount: ") ;
+    quantityIncluded = prompt("Input quantityIncluded: ") ;
+    renDays = prompt("Input renDays: ") ;
+
+    totalPay = 300*renDays*(1-discount/100) ;
+    alert("Name " + name + "CMND " + cmnd + "TotalPay " + totalPay) ;
+
+
+
+
+</script>
+
+
+</body>
+</html>

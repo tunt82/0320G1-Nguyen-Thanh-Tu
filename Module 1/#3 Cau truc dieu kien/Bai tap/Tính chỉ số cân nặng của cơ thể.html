@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 350px;
+            height: 100px;
+        }
+        table,th,td {
+            border: 1px solid black;
+    </style>
+
+</head>
+<body>
+<form style="line-height:40px ; position: absolute ; top: 30px">
+     <strong> NHẬP CÁC CHỈ SỐ CỦA BẠN </strong>  <br><br>
+
+    Nhập chiều cao
+    <input type="text"  style="left: 60%; position: absolute ; top: 90px" id="chieuCao"> <br>
+    Nhập cân nặng
+    <input type="text"  style="left: 60%; position: absolute ; top: 130px" id="canNang"> <br>
+    <input type="button" value="Tính toán" onclick="tinhToan()"> <br>
+    Chỉ số khối cơ thể của bạn là <br>
+    BMI
+    <input type="text" style="left: 60%; position: absolute ; top: 250px" id="a"> <br>
+    Intrepretation
+    <input type="text" style="left: 60%; position: absolute ; top: 290px" id="Intrepretation"> <br>
+
+
+
+</form>
+<div style="position: absolute ; left: 500px ; top: 30px">
+    <table>
+        <tr>
+            <th> BMI </th>
+            <th>Intrepretation</th>
+        </tr>
+        <tr>
+            <td> BMI<18.5 </td>
+            <td> Underweight </td>
+        </tr>
+        <tr>
+            <td> BMI<18.5 </td>
+            <td> Underweight </td>
+        </tr>
+        <tr>
+            <td> 18.5<= BMI<25 </td>
+            <td> Normal </td>
+        </tr>
+        <tr>
+            <td> 25<= BMI <30 </td>
+            <td> Overweight </td>
+        </tr>
+        <tr>
+            <td> 30<= BMI </td>
+            <td> Obese </td>
+        </tr>
+
+    </table>
+
+</div>
+
+<script>
+    function tinhToan() {
+        let chieuCao = document.getElementById("chieuCao") ;
+        let canNang = document.getElementById("canNang") ;
+        let bmi = parseFloat(canNang.value) /( parseFloat(chieuCao.value) **2) ;
+
+        document.getElementById("a").value = parseFloat(bmi) ;
+
+        if (bmi < 18)
+            document.getElementById("Intrepretation").value ="Underweight";
+        else if (bmi < 25.0)
+            document.getElementById("Intrepretation").value ="Normal";
+        else if (bmi < 30.0)
+            document.getElementById("Intrepretation").value ="Overweight";
+        else
+            document.getElementById("Intrepretation").value ="Obese";
+
+       }
+
+
+
+</script>
+
+
+</body>
+</html>
