@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt("Nhập điểm kiểm tra ")) ;
+    let b = parseInt(prompt("Nhập điểm kiểm tra giữa kỳ ")) ;
+    let c = parseInt(prompt("Nhập điểm kiểm tra cuối kỳ ")) ;
+
+    let tb = (a + b + c)/3 ;
+
+    if (tb >=9) {
+        alert("Hạng A") ;
+    }
+    else {
+        if (tb >=7 && tb<9) {
+            alert("Hạng B") ;
+         }
+        else {
+            if (tb >=5 && tb<7) {
+                alert("Hạng C") ;
+            }
+            else {
+                alert("Hạng F") ;
+            }
+
+        }
+    }
+
+</script>
+</body>
+</html>

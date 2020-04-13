@@ -3,30 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        h1 { text-align: center; font-size: 50px}
+<table>
+    <th>
+        Hạng mục
+    </th>
 
-    </style>
+</table>
 
-    <h1> FURAMA RESORT </h1>
-    <h2><i> KHU NGHỈ DƯỠNG ĐẲNG CẤP QUỐC TẾ </i></h2>
 
 </head>
 <body>
-<div id="main">
-    <div id="head">
-    </div>
-    <div id="head-link">
-    </div>
-    <div id="left">
-    </div>
-    <div id="content">
-    </div>
-    <div id="right">
-    </div>
-    <div id="footer">
-    </div>
-</div>
 
 <script>
     let name ;
@@ -52,8 +38,14 @@
     quantityIncluded = prompt("Input quantityIncluded: ") ;
     renDays = prompt("Input renDays: ") ;
 
+
+
     totalPay = 300*renDays*(1-discount/100) ;
-    alert("Name " + name + "CMND " + cmnd + "TotalPay " + totalPay) ;
+
+    alert(name + "\n" + cmnd+ "\n" + birthday+ "\n" + email+ "\n" + address+ "\n" + typeService+ "\n" + typeRoom+ "\n" + discount+ "\n" + quantityIncluded+ "\n" + renDays+ "\n" + totalPay) ;
+
+
+
 
 
 

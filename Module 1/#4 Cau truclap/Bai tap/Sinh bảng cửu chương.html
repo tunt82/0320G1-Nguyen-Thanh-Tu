@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script>
+    let bang =  "<table border='1' cellpadding='3' cellspacing='0'>" ;
+
+    for( i=0 ; i<10 ; i++) {
+        bang+= "<tr>" ;
+        for(j=0; j<10 ; j++) {
+            bang+= "<td align='center'>"+i+"*"+j+" = "+ (i*j)+"</td>" ;
+        }
+        bang+="</tr>" ;
+    }
+    bang+= "</table>";
+    document.write(bang) ;
+
+</script>
+
+
+
+</body>
+</html>

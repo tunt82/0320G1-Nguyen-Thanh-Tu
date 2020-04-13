@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let mang = [2,5,63,56,2,11,65,23,8,9]
+    let max = 0, vitri = 0, tongTb = 0
+
+
+    for (let i=0; i<mang.length; i++){
+        if (max < mang[i]) {
+            max = mang[i]
+            vitri = i
+        }
+        tongTb += mang[i]/mang.length
+    }
+
+
+    document.write("Phần tử lớn nhất trong mảng là "+ max + " tại vị trí mangso "+vitri+"<br>")
+    document.write("Tổng trung bình của các số là "+tongTb)
+
+
+</script>
+
+</body>
+</html>

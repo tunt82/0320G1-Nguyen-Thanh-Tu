@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input {
+
+        width: 50px ; height: 40px ; font-size: 20px; text-align: center
+        }
+    </style>
+
+ </head>
+<body>
+<div style="width: 300px; height: 400px; background-color: rgba(53,255,135,0.31);
+            border-collapse: collapse; border: solid black;margin-top: 0% ; margin-left: 40px">
+
+    <div style="width: 288px; height: 46px; background-color: rgba(21,119,255,0.31);
+            border-collapse: collapse; position: absolute; left: 57px ; top: 30px">
+        <input id="result" type="text" style=" width: 284px ; height: 40px ; position: absolute; left: 0px; top: 0px ; text-align: right">
+    </div>
+<div style="width: 270px; height: 323px; background-color: rgba(255,140,40,0.31);
+            border-collapse: collapse; position: absolute; left: 5% ; top: 15%">
+
+    <div style="width: 270px ; height: 55px ;position: absolute; left: 0px ; top: 0px ; background-color: #CDCDCD">
+        <input type="button" value="1" style=" width: 50px ; height: 40px ; position: relative; left: 5px; top: 5px" onclick="result.value+=this.value">
+        <input type="button" value="2" style=" width: 50px ; height: 40px ; position: relative; left: 21px; top: 5px" onclick="result.value+=this.value">
+        <input type="button" value="3" style=" width: 50px ; height: 40px ; position: relative; left: 39px; top: 5px" onclick="result.value+=this.value">
+        <input type="button" value="+" style=" width: 50px ; height: 40px ; position: relative; left: 53px; top: 5px" onclick="result.value+=this.value">
+    </div>
+        <div style="width: 270px ; height: 55px ;position: absolute; left: 0px ; top: 50px ; background-color: #CDCDCD">
+            <input type="button" value="4" style=" width: 50px ; height: 40px ; position: relative; left: 5px; top: 5px" onclick="result.value+=this.value">
+            <input type="button" value="5" style=" width: 50px ; height: 40px ; position: relative; left: 21px; top: 5px" onclick="result.value+=this.value">
+            <input type="button" value="6" style=" width: 50px ; height: 40px ; position: relative; left: 39px; top: 5px" onclick="result.value+=this.value">
+            <input type="button" value="-" style=" width: 50px ; height: 40px ; position: relative; left: 53px; top: 5px" onclick="result.value+=this.value">
+        </div>
+
+        <div style="width: 270px ; height: 55px ;position: absolute; left: 0px ; top: 100px ; background-color: #CDCDCD">
+            <input type="button" value="7" style=" width: 50px ; height: 40px ; position: relative; left: 5px; top: 5px" onclick="result.value+=this.value">
+            <input type="button" value="8" style=" width: 50px ; height: 40px ; position: relative; left: 21px; top: 5px" onclick="result.value+=this.value">
+            <input type="button" value="9" style=" width: 50px ; height: 40px ; position: relative; left: 39px; top: 5px" onclick="result.value+=this.value">
+            <input type="button" value="*" style=" width: 50px ; height: 40px ; position: relative; left: 53px; top: 5px" onclick="result.value+=this.value">
+        </div>
+
+        <div style="width: 270px ; height: 55px ;position: absolute; left: 0px ; top: 150px ; background-color: #CDCDCD">
+            <input type="button" value="C" style=" width: 50px ; height: 40px ; position: relative; left: 5px; top: 5px" onclick="result.value = 0>
+            <input type="button" value="0" style=" width: 50px ; height: 40px ; position: relative; left: 21px; top: 5px" onclick="result.value+=this.value">
+            <input type="button" value="=" style=" width: 50px ; height: 40px ; position: relative; left: 39px; top: 5px" onclick="tinhtoan()">
+            <input type="button" value="/" style=" width: 50px ; height: 40px ; position: relative; left: 53px; top: 5px" onclick="result.value+=this.value">
+        </div>
+
+</div>
+
+</div>
+
+
+
+<script>
+ function tinhtoan() {
+     let a = document.getElementById("result") ;
+
+     b = eval(a.value) ;
+     document.getElementById("result").value = b ;
+
+ }
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   let mang= []
+   let boo = true
+
+    for (let i=0; i< 5; i++){
+        mang[i] = prompt("Nhập giá trị vào mảng ")
+        if(mang[i]== "V") {
+            boo= false
+        }
+    }
+   document.write("Mang = ["+mang+"]<br>")
+
+    if (boo==false) {
+        document.write("V nằm trong dãy số")
+    }else {
+        document.write("V không nằm trong dãy số")
+    }
+
+</script>
+</body>
+</html>

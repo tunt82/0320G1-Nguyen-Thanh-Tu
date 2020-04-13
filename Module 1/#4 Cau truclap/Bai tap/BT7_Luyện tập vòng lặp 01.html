@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let print = "" ;
+
+    for (var i=0; i<=100; i++) {
+        if ( i % 3 == 0&&  i % 5 == 0) {
+            print += "FizzBuzz" + "<br>" ;
+        }else if ( i % 3 == 0) {
+            print += "Fizz" + "<br>" ;
+        }
+        else if (i % 5 == 0) {
+            print +="Buzz" + "<br>" ;
+        }else {
+            print+=i+"<br>";
+        }
+    }
+
+
+    document.write(print) ;
+
+
+</script>
+
+
+
+</body>
+</html>

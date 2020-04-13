@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let mang = []
+    let min = 0
+
+    for (let i = 0; i < 5; i++) {
+        mang[i] = prompt("Nhập số vào mảng")
+    }
+    document.write("Mảng trước khi sắp xếp = ["+mang+"]<br>")
+
+   for (let i = 0; i < mang.length ; i++) {
+       for (let j = i + 1; j < mang.length; j++) {
+           if (mang[i] < mang[j]) {
+               min = mang[i]
+               mang[i] = mang[j]
+               mang[j] = min
+           }
+       }
+   }
+
+
+    document.write("Mảng sau khi sắp xếp = ["+mang+"]")
+
+
+
+
+</script>
+</body>
+</html>

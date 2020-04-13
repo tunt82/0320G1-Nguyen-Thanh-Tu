@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ điển</title>
+</head>
+<body>
+<input type="text" id="tieng_anh" >
+
+<input type="button" value="Dịch" onclick="dich()">
+<br><br>
+<p id="tieng_viet" />
+<script>
+
+    let mangTA = ["how", "old", "are", "you", "i", "am", "fine", "thanks"]
+    let mangTV = ["làm sao", "cũ, cổ xưa", "là", "bạn", "tôi", "là", "khỏe", "cảm ơn"]
+    document.getElementById("tieng_viet").innerHTML = "Chỉ có thể nhập các từ sau: \"how\", \"old\", \"are\", \"you\", \"i\", \"am\", \"fine\", \"thanks\""
+
+
+
+    function dich() {
+        for (let i = 0; i < mangTA.length; i++) {
+            if (mangTA[i] == tieng_anh.value) {
+                document.getElementById("tieng_viet").innerHTML = mangTV[i]
+                break
+            } else {
+                document.getElementById("tieng_viet").innerHTML = "Không có dữ liệu"
+            }
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>

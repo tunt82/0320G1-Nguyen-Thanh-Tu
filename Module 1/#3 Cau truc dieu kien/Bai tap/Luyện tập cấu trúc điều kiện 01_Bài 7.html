@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let dienTieuThu = parseInt(prompt("Nhập thời số điện tiêu thụ ")) ;
+    let tienDien ;
+
+    if (dienTieuThu <= 100) {
+        tienDien = dienTieuThu*600
+        alert("Tiền điện của bạn là " + tienDien) ;
+    }
+    else {
+        if (dienTieuThu > 100 && dienTieuThu <= 150 ) {
+            tienDien = 100*600 + (dienTieuThu - 100)*700
+            alert("Tiền điện của bạn là " + tienDien) ;
+        }
+        else {
+            if (dienTieuThu > 150 && dienTieuThu <= 200 ) {
+                tienDien = 100*600 + 60*700 + (dienTieuThu - 150)*900 ;
+                alert("Tiền điện của bạn là " + tienDien) ;
+            }
+            else {
+                tienDien = 100*600 + 50*700 + 50*900 + (dienTieuThu - 200)*1100 ;
+                alert("Tiền điện của bạn là " + tienDien) ;
+            }
+        }
+    }
+
+
+</script>
+
+
+
+
+</body>
+</html>

@@ -15,13 +15,13 @@
 
 </head>
 <body>
-<form style="line-height:40px ; position: absolute ; top: 30px">
+<form style="line-height:100px ; position: absolute ; top: 30px">
      <strong> NHẬP CÁC CHỈ SỐ CỦA BẠN </strong>  <br><br>
 
     Nhập chiều cao
-    <input type="text"  style="left: 60%; position: absolute ; top: 90px" id="chieuCao"> <br>
+    <input type="text" id="chieuCao"> <br>
     Nhập cân nặng
-    <input type="text"  style="left: 60%; position: absolute ; top: 130px" id="canNang"> <br>
+    <input type="text" id="canNang"> <br>
     <input type="button" value="Tính toán" onclick="tinhToan()"> <br>
     Chỉ số khối cơ thể của bạn là <br>
     BMI
@@ -69,7 +69,7 @@
         let canNang = document.getElementById("canNang") ;
         let bmi = parseFloat(canNang.value) /( parseFloat(chieuCao.value) **2) ;
 
-        document.getElementById("a").value = parseFloat(bmi) ;
+        document.getElementById("a").value = parseFloat(bmi.value) ;
 
         if (bmi < 18)
             document.getElementById("Intrepretation").value ="Underweight";

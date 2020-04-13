@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let luongThang = parseInt(prompt("Nhập lương của bạn ")) ;
+    let thueThuNhapCaNhan ;
+    let luongThucLanh ;
+
+    if (luongThang <= 7000000) {
+        thueThuNhapCaNhan = luongThang*0.1 ;
+        luongThucLanh = luongThang - thueThuNhapCaNhan
+        alert("Thuế thu nhập cá nhân của bạn là " + thueThuNhapCaNhan + "Lương thực lãnh của bạn là " + luongThucLanh) ;
+    }
+    else {
+        if (luongThang <= 15000000 && luongThang > 7000000) {
+            thueThuNhapCaNhan = luongThang*0.2 ;
+            luongThucLanh = luongThang - thueThuNhapCaNhan
+            alert("Thuế thu nhập cá nhân của bạn là " + thueThuNhapCaNhan + "Lương thực lãnh của bạn là " + luongThucLanh) ;
+        }
+        else {
+            if (luongThang > 15000000) {
+                thueThuNhapCaNhan = luongThang*0.3 ;
+                luongThucLanh = luongThang - thueThuNhapCaNhan
+                alert("Thuế thu nhập cá nhân của bạn là " + thueThuNhapCaNhan + "Lương thực lãnh của bạn là " + luongThucLanh) ;
+            }
+        }
+    }
+
+
+</script>
+
+
+
+
+</body>
+</html>

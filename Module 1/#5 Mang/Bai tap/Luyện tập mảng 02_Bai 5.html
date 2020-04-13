@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let chuoi1 = prompt("Nhập chuỗi 1")
+    let chuoi2 = prompt("Nhập chuỗi 2")
+    let sosanh =true
+
+    document.write("Chuỗi 1 là: " + chuoi1+ "<br>"+"Chuỗi 1 là: " + chuoi2 +"<br>")
+
+    if(chuoi1.length != chuoi2.length) {
+        document.write("Hai chuỗi không giống nhau")
+    }else {
+        for (var i=0; i<chuoi1.length; i++) {
+            for (var j=0; j<chuoi2.length; j++) {
+                if(chuoi1[i]==chuoi2[j]){
+                   sosanh=true
+                }else {
+                    sosanh=false
+                }
+            }
+
+        }
+        if(sosanh==false){
+            document.write("Hai chuỗi không giống nhau")
+        }else {
+            document.write("Hai chuỗi giống nhau")
+        }
+
+    }
+
+
+
+
+</script>
+</body>
+</html>
