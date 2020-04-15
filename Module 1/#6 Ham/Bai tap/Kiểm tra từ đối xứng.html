@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function isPalindrome(chuoi) {
+        let check
+        let dai = chuoi.length - 1
+
+        for(var i=0; i<chuoi.length; i++){
+            if (chuoi[i]==chuoi[dai]){
+                dai --
+                check = true
+            }
+            else {
+                check=false
+                break
+            }
+
+        }
+        if(check==true){
+            alert("Chuỗi "+ chuoi +" đối xứng")
+        }
+        else {
+            alert("Chuỗi "+ chuoi +" không đối xứng")
+        }
+
+    }
+
+    let a = prompt("Nhập vào chuỗi để kiểm tra đối xứng ")
+    isPalindrome(a)
+
+</script>
+
+
+</body>
+</html>

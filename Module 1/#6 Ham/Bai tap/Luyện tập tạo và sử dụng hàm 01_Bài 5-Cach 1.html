@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function timSao2(sao) {
+        let mang1= ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"]
+        let mang2= ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"]
+
+        for(var i=0; i<mang1.length; i++){
+            if(sao==mang1[i]) {
+                return mang2[i]
+            }
+
+        }
+
+    }
+
+    let sao="Aldebaran"
+    result=timSao2(sao)
+    alert(result)
+
+</script>
+
+</body>
+</html>

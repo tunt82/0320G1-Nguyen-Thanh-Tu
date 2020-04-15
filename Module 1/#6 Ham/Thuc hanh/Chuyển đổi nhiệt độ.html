@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="button" value="Nhập nhiệt độ C">
+<input type="text" id="input" oninput="converter(this.value)">
+
+<p>Celsius: <span id="outputCelsius"></span></p>
+<script>
+
+    function converter() {
+        let c = document.getElementById("input");
+        let f = (c.value-32) / 1.8;
+        document.getElementById("outputCelsius").innerHTML= f
+    }
+
+</script>
+</body>
+</html>

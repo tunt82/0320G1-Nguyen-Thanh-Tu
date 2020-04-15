@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="nhapSo()">
+
+<script>
+    function tinhTong(a,b) {
+      while (a>b) {
+         alert("Nhập lại số a sao cho a<b")
+          a= prompt("Nhập số a ")
+          b= prompt("Nhập số a ")
+      }
+        return a+b
+      }
+
+    function nhapSo() {
+        let a= parseInt(prompt("Nhập số a "))
+        let b= parseInt(prompt("Nhập số b "))
+        alert(tinhTong(a,b))
+
+    }
+
+
+</script>
+
+</body>
+</html>

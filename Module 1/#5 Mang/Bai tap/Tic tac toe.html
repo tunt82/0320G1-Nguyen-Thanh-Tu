@@ -2,9 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Cờ caro</title>
 </head>
-<body>
+<body >
+<h2>GAme caro</h2>
+<p id="caro"></p>
+
+<input type="button" value="Người chơi 1" style="position: absolute; left: 600px; top: 100px" onclick="play1()">
+<input type="button" value="Người chơi 2" style="position: absolute; left: 600px; top: 150px" onclick="play2()">
+
+<br>
+
+<script>
+   let co = document.getElementById("caro")
+   let banco=[]
+   let data= "<table border='1' cellpadding='10' cellspacing='0'>" ;
+
+   for(var i=0; i<10; i++){
+      banco[i]= [" . "," . "," . "," . "," . "," . "," . "," . "," . "," . "," . "," . "," . "," . "," . "," . "," . "," . "," . "," . "];
+   }
+
+   let a =2
+
+
+   for(var i=0; i<banco.length; i++) {
+       data+="<tr>"
+       for(var j=0; j<banco[i].length; j++) {
+           data+= "<td align='center'>"+banco[i][j]+"</td>" ;
+       }
+       data+="</tr>"
+   }
+   co.innerHTML = data
+
+   function play1(x,y) {
+       x=prompt("Nhập vị trí x ");
+       y=prompt("Nhập vị trí y ");
+       banco[x][y]="O"
+
+       for(var i=0; i<banco.length; i++) {
+           data+="<tr>"
+           for(var j=0; j<banco[i].length; j++) {
+               data+= "<td align='center'>"+banco[i][j]+"</td>" ;
+           }
+           data+="</tr>"
+       }
+       co.innerHTML = data
+
+   }
+   function play2(x,y) {
+       x=prompt("Nhập vị trí x ");
+       y=prompt("Nhập vị trí y ");
+       banco[x][y]="X"
+
+       for(var i=0; i<banco.length; i++) {
+           data+="<tr>"
+           for(var j=0; j<banco[i].length; j++) {
+               data+= "<td align='center'>"+banco[i][j]+"</td>" ;
+           }
+           data+="</tr>"
+       }
+       co.innerHTML = data
+
+   }
+
+
+
+</script>
 
 </body>
 </html>

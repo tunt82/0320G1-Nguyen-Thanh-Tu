@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body >
+<script>
+    function timSao1(sao) {
+        let mang1= ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"]
+        let mang2= ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"]
+
+        let viTri=0
+        for (var i=0; i<mang1.length; i++) {
+            if(mang1[i]==sao){
+                viTri = i
+            }
+        }
+        for (var j=0; j<mang2.length; j++) {
+            if(j=viTri){
+                return mang2[j]
+            }
+        }
+    }
+
+    let sao =prompt("Nhập sao")
+    alert(timSao1(sao))
+
+
+</script>
+</body>
+</html>

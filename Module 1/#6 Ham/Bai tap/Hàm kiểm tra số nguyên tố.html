@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="nhapSo()">
+
+<script>
+
+    function checkSnt(so) {
+
+    let soNguyenTo=" "
+    let check=true
+    let count=0
+
+    for (var i=2; i<so; i++) {
+        if (so % i == 0) {
+            check = false
+            alert("Số nhập vào không phải số nguyên tố")
+            break
+        }
+
+    }
+    if (check) {
+        alert("Số nguyên tố")
+    }
+    }
+
+    function nhapSo() {
+        let so= prompt("Nhập số cần kiểm tra ")
+        result=checkSnt(so)
+        return result
+    }
+
+
+
+</script>
+
+</body>
+</html>

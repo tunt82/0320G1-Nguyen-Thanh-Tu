@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="javascript:void(0);" method="POST" onsubmit="themSanPham()">
+    <input type="text" id="add" placeholder="Thêm sản phẩm">
+    <input type="submit" value="Thêm" >
+</form>
+
+<br><br>
+
+<table border="1px" cellpadding="0" cellspacing="0" width="600" style="text-align: center; ">
+    <tr>
+        <th style="padding: 10px 0;">Tổng các sản phẩm</th>
+        <th colspan="2" style="padding: 10px 0;"><p id="soluong"></p></th>
+    </tr>
+    <tbody id="product"></tbody>
+</table>
+
+<br><br>
+
+<form action="javascript:void(0);" method="POST" id="saveEdit" >
+    <input type="text" id="edit" placeholder="Edit sản phẩm">
+    <button type="submit" id="buton" value=" " onclick="editSanPham_add(this.value)"> Edit </button>
+</form>
+
+
+
+<script>
+    let listSanPham = ["SONY","SAMSUNG","NOKIA","VSMART"]
+    danhSachSanPham()
+    function danhSachSanPham() {
+        let data=" "
+        for (var i=0; i<listSanPham.length; i++) {
+            data+= "<tr>"
+            data+= "<td>"+ listSanPham[i] + "</td>"
+            data+= "<td>" + "<input type='button' id='"+i+"' value='Edit' onclick='editSanPham("+i+")'>"
+            data+= "<td>" + "<input type='button' id='sp2' value='Delete' onclick='deleteSanPham("+i+")'>" + "</td>"
+            data+= "</tr>"
+            document.getElementById("product").innerHTML=data
+        }
+    }
+
+    function themSanPham() {
+        let a = document.getElementById("add").value
+        listSanPham.push(a)
+        danhSachSanPham()
+
+    }
+
+    function editSanPham(index) {
+        let editProduct
+        document.getElementById("buton").value=index;
+        editProduct = listSanPham[index]
+        document.getElementById("edit").value = editProduct
+
+            }
+    function editSanPham_add(index){
+        let a = document.getElementById("edit")
+        listSanPham[index]= a.value
+        danhSachSanPham()
+        document.getElementById("edit").value = " "
+    }
+
+    function deleteSanPham(index) {
+        if(confirm("Bạn có thực sự muốn Delete sản phẩm " + listSanPham[index] + " hay không ?")) {
+            listSanPham.splice(index,1)
+        }
+        danhSachSanPham()
+    }
+
+
+</script>
+
+
+
+</body>
+</html>
