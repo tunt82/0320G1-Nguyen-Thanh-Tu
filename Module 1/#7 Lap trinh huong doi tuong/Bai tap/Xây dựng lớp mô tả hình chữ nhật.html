@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="500" style="border:1px solid #2e37d3;">
+    Your browser does not support the HTML5 canvas tag.</canvas>
+<script>
+
+    let Rectangle = function (x, y, chieuDai, chieuRong) {
+        this.x=x;
+        this.y=y;
+        this.chieuDai=chieuDai;
+        this.chieuRong=chieuRong;
+        this.getArea= function () {
+            return this.chieuRong*this.chieuDai;
+        }
+        this.getChuVi= function () {
+            return 2*this.chieuRong*this.chieuDai;
+        }
+        this.changeChieuDai = function(width) {
+            this.chieuDai=width;
+            return this.chieuDai;
+        }
+        this.changeChieuRong= function (chieuRong) {
+            this.chieuRong=chieuRong
+        }
+        this.canvas=function () {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.fillStyle="#FF0000";
+            ctx.fillRect(this.x,this.y,this.chieuDai,this.chieuRong);
+        }
+
+    }
+
+    let rectangle = new Rectangle(20,20,200,150)
+    rectangle.canvas()
+
+    rectangle.changeChieuDai(120)
+
+    document.write("Diện tích của hình chữ nhật là " + rectangle.getArea() + "<br>"+
+                   "Chu vi hình chữ nhật là" + rectangle.getChuVi())
+
+
+
+
+</script>
+
+</body>
+</html>

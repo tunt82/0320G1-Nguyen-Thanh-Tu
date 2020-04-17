@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Object-oriented JavaScript class example</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    let Circle= function (radius, color) {
+        this.radius = radius;
+        this.color = color;
+
+        this.getRadius=function () {
+            return radius
+        }
+        this.getArea = function () {
+            return Math.PI * radius * radius;
+        }
+    }
+
+    let circle = new Circle(2,"xanh")
+    let radius=circle.getRadius()
+    let color=circle.color
+    let area=circle.getArea()
+
+    alert(area)
+
+
+
+
+
+</script>
+</html>
+

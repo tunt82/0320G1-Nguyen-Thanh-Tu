@@ -6,16 +6,158 @@
 </head>
 <body>
 <script>
-    let name = "Nguyen Van A";
-    let email = "abc123@gmail.com";
-    let id = "123456789";
-    let birthday = "01/01/2000";
-    let address = "Da Nang";
+    function checkEmail(){
+        let check = true;
+        diaChiEmail=prompt("Nhập địa chỉ email ");
+        while (check){
+            diaChiEmail=prompt("Nhập đúng định dạng @gmail.com ");
+            for(var i=0; i<diaChiEmail.length; i++) {
+                let a0 = diaChiEmail.length - 1
+                let a1 = diaChiEmail.length - 2
+                let a2 = diaChiEmail.length - 3
+                let a3 = diaChiEmail.length - 4
+                let a4 = diaChiEmail.length - 5
+                let a5 = diaChiEmail.length - 6
+                let a6 = diaChiEmail.length - 7
+                let a7 = diaChiEmail.length - 8
+                let a8 = diaChiEmail.length - 9
+                let a9 = diaChiEmail.length - 10
+
+                if (diaChiEmail[a0] != "m") {
+
+                    break;
+                } else if (diaChiEmail[a1] != "o"){
+                    break;
+                } else if (diaChiEmail[a2] != "c"){
+                    break;
+                } else if (diaChiEmail[a3] != "."){
+                    break;
+                } else if (diaChiEmail[a4] != "l"){
+                    break;
+                } else if (diaChiEmail[a5] != "i"){
+                    break;
+                } else if (diaChiEmail[a6] != "a"){
+                    break;
+                } else if (diaChiEmail[a7] != "m"){
+                    break;
+                } else if (diaChiEmail[a8] != "g"){
+                    break;
+                } else if (diaChiEmail[a9] != "@"){
+                    break;
+
+                }else {
+                    check = false
+                }
+            }
+        }
+       return  diaChiEmail
+    }
+
+    function checkId(){
+        let check = true;
+        let soCMND;
+        let a
+       while (check){
+            soCMND=prompt("Nhập số CMND ");
+            for(var i=0; i<soCMND.length; i++){
+                a=soCMND[i]
+                if(isNaN(a)){
+                    break;
+                }else if (i==soCMND.length-1) {
+                    check=false
+                }
+            }
+       }
+       return soCMND
+    }
+
+    function checkBirthday(){
+        let check = true;
+        let birthday;
+        let a
+        while (check){
+            birthday=prompt("Nhập số ngày tháng năm sinh ");
+            if(birthday.charAt(2)!="/" || birthday.charAt(5)!="/"){
+                check=true
+            }else {
+                let day=birthday.substring(0,2);
+                let month=birthday.substring(3,5);
+                let year=birthday.substring(6,9);
+                if(isNaN(day) || isNaN(month) || isNaN(year)){
+                    check=true;
+                }else {
+                    day=Number.parseFloat(day);
+                    month=Number.parseFloat(month);
+                    year=Number.parseFloat(year);
+                    if(!Number.isInteger(day) || !Number.isInteger(month) || !Number.isInteger(year)){
+                        check=true;
+                    }else {
+                        if(day>31 || month>12 || year>9999) {
+                            check=true;
+                        }else {
+                            check=false;
+                        }
+
+                    }
+                }
+
+            }
+        }
+        return birthday
+    }
+
+    function checkRenDay(){
+        let check = true;
+        let rentDay = 0;
+        while (check){
+            rentDay=prompt("Nhập số ngày thuê ");
+            if(isNaN(rentDay)){
+                check= true
+            }else{
+                rentDay=Number.parseFloat(rentDay);
+                if(Number.isInteger(rentDay)){
+                    if(rentDay>0){
+                        check=false;
+                    }
+                    } else {
+                    check=true;
+                }
+            }
+        }
+        return rentDay
+    }
+
+    function chuanHoaName(){
+        let name = prompt("Nhập họ tên khách hàng ");
+        name = name.trim().toLowerCase();
+        let tempName = "";
+        for (var i=0; i<name.length; i++){
+            if(name.charAt(i)===" " && name.charAt(i+1)===" ") {
+                continue;
+            }
+            if(i===0 || name.charAt(i-1)===" "){
+                tempName+=name.charAt(i).toUpperCase();
+                continue;
+            }
+            tempName+=name.charAt(i);
+
+        }
+        name=tempName
+        return name
+    }
+
+
+
+    let name = chuanHoaName()
+    let email = checkEmail();
+    let id =checkId();
+    let birthday = checkBirthday();
+    let address = "qfwqf";
     let typeCustomer = "Gold";
     let discount = "5";
     let numberofaccompanying = "0";
     let typeroom = "Vip";
-    let rentday = "10";
+    let rentday = checkRenDay();
     let typeservice = "House";
     let moneyservice;
     let discountaddress;
