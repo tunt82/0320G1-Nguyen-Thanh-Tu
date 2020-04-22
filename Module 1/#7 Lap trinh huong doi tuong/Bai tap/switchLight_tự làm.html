@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<img id="den" src="img/Den_Tat.gif" height="180" width="100"/>
+<button style="position: absolute; top: 200px; left: 20px" onclick="turnOnOff()">OnOf_Switch</button>
+<br><br>
+<h3 id="ketQua">Bóng đèn đang tắt</h3>
+<body>
+
+<script>
+    let buttonSwicth=function (status) {
+        this.status=status;
+        this.getStatus=function () {
+            return this.status
+        }
+        this.turnOn_turnOff=function () {
+            this.status =! this.status
+        }
+
+    }
+
+    let lamp=function (buttonSwicth1) {
+        this.onLight=function () {
+            if(buttonSwicth1.getStatus()===true){
+                document.getElementById("den").src="img/Den_Sang.gif";
+                document.getElementById("ketQua").innerHTML="Bóng đèn đang sáng";
+            }else {
+                document.getElementById("den").src="img/Den_Tat.gif";
+                document.getElementById("ketQua").innerHTML="Bóng đèn đang tắt";
+            }
+
+        }
+
+    }
+
+    let buttonSwitch1=new buttonSwicth(false);
+    let lamp1=new lamp(buttonSwitch1);
+
+    function turnOnOff() {
+        buttonSwitch1.turnOn_turnOff();
+        lamp1.onLight()
+    }
+
+
+</script>
+
+</body>
+</html>

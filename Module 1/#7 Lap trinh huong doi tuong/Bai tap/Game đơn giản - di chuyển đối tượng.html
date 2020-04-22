@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+
+<div id="game"></div>
+<canvas id="myCanvas" width="100" height="100" style="border:1px solid #000000; position: absolute; top: 250px;  left: 500px" ></canvas>
+<body onload="innit()">
+
+<script>
+    let classCar=function (image,top,left,size) {
+        this.image=image;
+        this.top=top;
+        this.left=left;
+        this.size=size;
+
+        this.getElementInfo= function() {
+            return '<img width="'+ this.size + '"' +
+                ' height="'+ this.size + '"' +
+                ' src="img/' + this.image +'"' +
+                ' style="top: '+this.top+'px; left:'+this.left+'px;position:absolute;" />';
+        }
+
+        this.moveRight = function(){
+            this.left+=10;
+        }
+
+        this.moveLeft = function(){
+            this.left-=10;
+        }
+        this.moveTop = function(){
+            this.top-=10;
+        }
+        this.moveDown = function(){
+            this.top+=10;
+        }
+
+    }
+
+    let car;
+    let direction=""
+    car= new classCar("carR.png",20,20,70);
+    function innit(){
+        window.addEventListener('keydown', phuongHuong)
+    }
+
+    function phuongHuong(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                direction="left";
+                car.image="carL.png"
+                break ;
+            case 39:
+                direction="right" ;
+                car.image="carR.png"
+                break ;
+            case 38 :
+                direction="up" ;
+                car.image="car.png"
+                break ;
+            case 40 :
+                direction="down" ;
+                car.image="carD.png"
+                break ;
+            case 32 :
+                direction="pause" ;
+                break ;
+        }
+    }
+
+    function start(){
+        switch (direction) {
+            case "right":
+                car.moveRight();
+                if(car.left===440 && car.top>190){
+                    alert("Bạn thua");
+                }
+                break;
+            case "left":
+                car.moveLeft();
+                break;
+            case "up":
+                car.moveTop();
+                break;
+            case "down":
+                car.moveDown();
+                break;
+            case "pause":
+                break;
+        }
+
+        document.getElementById("game").innerHTML = car.getElementInfo();
+        setTimeout(start, 100)
+    }start()
+
+
+
+
+
+</script>
+
+</body>
+</html>
+

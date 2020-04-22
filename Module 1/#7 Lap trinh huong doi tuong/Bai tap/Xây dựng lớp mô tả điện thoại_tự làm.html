@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    class Mobile {
+        constructor(pin, name,statusMobile) {
+            this.pin = pin;
+            this.name = name;
+            this.statusMobile=statusMobile;
+            this.smsSoanThao=[];
+            this.smsThuDen=[];
+            this.smsDaGui=[];
+        }
+        isStatus(){
+            if(this.statusMobile){
+                return true;
+            }else {
+                alert("Điện thoại đang tắt, vui lòng bật điện thoại lên!")
+                return  false;
+            }
+        }
+        onOffMobile(){
+            if(this.isStatus()===true){
+                this.statusMobile=false;
+            }else {
+                charchargMobile()
+                this.statusMobile=true;
+            }
+        }
+        chargMobile(){
+            if(this.pin<5){
+                alert("Pin điện thoại đang hết, vui lòng sạc pin điện thoại!");
+                while (this.pin){
+                    this.pin+=0.001;
+                }
+
+            }
+        }
+        soanSms(){
+            if(this.isStatus()){
+                this.chargMobile();
+                let sms = prompt("Nhập nội dung tin nhắn: ");
+                this.smsSoanThao.push(sms);
+                this.pin--;
+            }
+        }
+        guiSms(mobile){
+            if(this.isStatus()){
+                this.chargMobile();
+                if(this.smsSoanThao().length===0){
+                    this.soanSms();
+                    mobile.smsThuDen.push("Người gửi: "+this.name+ this.smsSoanThao[0]);
+                    this.smsDaGui.push(this.smsSoanThao[0]);
+                    this.smsSoanThao.splice(0,1);
+                }else {
+                    let temp="";
+                    for(var i=0;i<this.smsSoanThao.length;i++){
+                        temp+=i + ":"+ this.smsSoanThao[i] +"\n";
+                    }
+                    let index =parseInt(prompt(temp + "\n" + "Chọn tin nhắn cần gửi"));
+                    mobile.smsThuDen.push(this.smsSoanThao[i]);
+                    this.smsSoanThao.splice(index,1);
+                    this.pin--;
+                }
+            }
+        }
+        xemSms(){
+            if(this.isStatus()){
+                this.chargMobile();
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

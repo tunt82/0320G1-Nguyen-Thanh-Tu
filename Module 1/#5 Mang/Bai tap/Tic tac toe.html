@@ -12,17 +12,16 @@
    let co = document.getElementById("caro")
    let banco=[]
    for(var i=0; i<10; i++){
-       banco[i]= [" . "," . "," . "," . "," . "," . "," . "," . "," . "," . "," . "," . "," . "," . "," . "," . "," . "," . "," . "," . "];
+       banco[i]= ["   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","   "];
    }
 
    function display(){
    let data= "<table border='1' cellpadding='5' cellspacing='0'>" ;
 
    for(var i=0; i<banco.length; i++) {
-       // document.body.innerHTML="";
        data+="<tr>"
        for(var j=0; j<banco[i].length; j++) {
-           data+="<td width='20' align='center' onclick='play1("+i+","+j+")'>" +banco[i][j]+"</td>";
+           data+="<td height='20' width='20' align='center' onclick='play1("+i+","+j+")'>" +banco[i][j]+"</td>";
        }
        data+="</tr>"
    }
@@ -36,6 +35,10 @@
               alert("Bạn phải chọn vào ô chưa có giá trị ")
           }else {
           banco[x][y]="X"}
+
+
+
+
       }else {
           if(banco[x][y]=="X"||banco[x][y]=="O"){
               alert("Bạn phải chọn vào ô chưa có giá trị ")

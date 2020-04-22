@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+
+<body>
+<script>
+  let classApple= function (mass) {
+      this.mass=mass;
+
+      this.decreaseMass=function(){
+          if(this.mass >0){
+              this.mass--;
+          }
+      }
+      this.getMassStatus=function(){
+          return this.mass;
+      }
+      this.empty=function () {
+          this.mass===0;
+      }
+  }
+
+  let classHuman=function (name,gender,weight) {
+      this.name=name;
+      this.gender=gender;
+      this.weight=weight;
+
+      this.checkApple=function () {
+          return apple.mass
+
+      }
+      this.say=function (say) {
+          document.write(say);
+      }
+      this.eat=function (apple) {
+          if(this.checkApple(apple)>0){
+              apple.decreaseMass();
+              this.weight++;
+          }
+
+
+      }
+  }
+
+
+  let apple= new classApple(10);
+  let  adam= new classHuman("adam","male",70)
+  let  eva= new classHuman("eva","female",50)
+
+  adam.say("Adam: Tụi mình ăn táo đi Eva!" + "<br>")
+  eva.say("Eva: Ok Adam! Em ăn trước nha" + "<br>")
+  adam.say("Adam: OK"+"<br><br>")
+  eva.eat(apple);
+  document.write("Khối lượng táo còn lại là: "+ apple.mass+"<br>"+
+                 "Trọng lượng Eva là: "+eva.weight + "<br><br><br>")
+
+  eva.eat(apple);
+
+
+
+  let cout=2
+  while (apple.mass>0)  {
+      if(cout%2===0){
+          adam.eat(apple);
+      }else {
+          eva.eat(apple)
+      }
+      cout++
+  }
+  document.write("Sau một lúc 2 bạn đã ăn hết quả táo, thành tích đạt được của 2 bạn như sau: "+"<br>"+
+      "Trọng lượng của Adam tăng lên: "+ adam.weight+"<br>"+
+      "Trọng lượng của Eva tăng lên: "+ eva.weight+"<br>"+
+      "Khối lượng táo giờ chỉ còn: "+ apple.mass)
+
+
+
+</script>
+</body>
+</html>

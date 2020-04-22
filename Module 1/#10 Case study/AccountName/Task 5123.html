@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+
+    let ClassMenu= function () {
+        this.arrNameCustomer=[];
+        this.addNewCustomer=function(){
+            let customerQuantity=parseInt(prompt("Số lượng Customer cần nhập"));
+            for(var i=0; i<customerQuantity; i++){
+                let nameCustomer=prompt("Nhập Name Customer "+ (i+1));
+                this.arrNameCustomer.push(nameCustomer);
+            }
+            this.arrNameCustomer.sort()
+
+        }
+        this.displayInformationCustomer=function () {
+            let display=""
+            for (var i=0; i<this.arrNameCustomer.length; i++){
+                display+=(i+1)+"."+this.arrNameCustomer[i]+"\n"
+            }
+            alert(display);
+
+        }
+        this.editInformationCustomer=function () {
+            let displayCustomerList=""
+            for (var i=0; i<this.arrNameCustomer.length; i++){
+                displayCustomerList+=(i+1)+"."+this.arrNameCustomer[i]+"\n"
+            }
+            let nameEdit = prompt("Nhập số thứ tự tên Customer cần edit"+ "\n"+ displayCustomerList);
+            let newName = prompt("Nhập New Name cho Customer");
+            this.arrNameCustomer[nameEdit-1]=newName;
+            this.arrNameCustomer.sort()
+        }
+        this.deleteCutomer=function() {
+            let displayCustomerList = ""
+            for (var i = 0; i < this.arrNameCustomer.length; i++) {
+                displayCustomerList += (i + 1) + "." + this.arrNameCustomer[i] + "\n"
+            }
+            let nameDelete = prompt("Nhập số thứ tự tên Customer cần Delete" + "\n" + displayCustomerList);
+            let temp=nameDelete-1
+            this.arrNameCustomer.splice(temp,1);
+            this.arrNameCustomer.sort()
+        }
+
+
+    }
+
+    let menu= new ClassMenu();
+
+
+    while (1){
+        let choosemenu= parseInt(prompt("Main menu"+"\n"+
+                                  "1. Add New Customer" + "\n"+
+                                  "2. Display Information Customer"+"\n"+
+                                  "3. Edit Information Customer"+"\n"+
+                                  "4. Delet Customer"+"\n"+
+                                  "5. Exit"));
+        if(choosemenu===1){
+            menu.addNewCustomer();
+        }
+        if(choosemenu===2){
+            menu.displayInformationCustomer();
+        }
+        if(choosemenu===3){
+            menu.editInformationCustomer();
+        }
+        if(choosemenu===4){
+            menu.deleteCutomer();
+        }
+        if(choosemenu===5){
+            break;
+        }
+    }
+
+
+
+</script>
+
+</body>
+</html>

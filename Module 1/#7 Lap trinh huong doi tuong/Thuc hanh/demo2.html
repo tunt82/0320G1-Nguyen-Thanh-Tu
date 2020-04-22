@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Animal {
+        constructor(name, legs, noise) {
+            this.name = name;
+            this.legs = legs;
+            this.noise = noise;
+        }
+
+        speak() {
+            alert(`${this.name} says "${this.noise}"`);
+        }
+
+        walk() {
+            alert(`${this.name} walks on ${this.legs} legs`);
+        }
+
+    }
+
+    // let animal1 = new Animal('con bo',4,'bò')
+
+    class Dog extends Animal{
+        constructor(type, name, legs, noise){
+            super(name,legs , noise);
+            this.type = type;
+        }
+    }
+    let dog2 = new Dog('husky','A Rex',4,"Gau Gau");
+    dog2.speak();
+    dog2.walk();
+
+    class Bird extends Animal{
+        constructor(type, name, legs, noise){
+            super(name,legs,noise);
+            this.type = type;
+        }
+        fly() {
+            alert(this.name + " co the bay tren troi")
+        }
+    }
+
+    bird = new Bird('Dai Bang', 'A Dieu', 2, 'chip chip');
+    bird.fly();
+    bird.speak();
+    bird.walk();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let mang=[0,1,2,3,4,5,6,7,8,9,
+              11,4,5,8,3,56,3,5,8,
+              4,4,4,4,4,6,7,3,2,4,4]
+
+    let so=parseInt(prompt("Nhập số: "))
+
+
+    let display=""
+    let count=0;
+    let temp1="";
+    let temp2="";
+    for(var i=0; i<mang.length; i++){
+        if(so===mang[i]){
+            count++
+        }
+    }
+
+    for(var i=0; i<10; i++){
+        temp1 += mang[i];
+    }
+    for(var i=11; i<20; i++){
+        temp2 += mang[i];
+    }
+    display+=temp1 + "<br>"+ temp2
+
+    document.write(display+ "<br>" + count)
+
+
+</script>
+</body>
+</html>

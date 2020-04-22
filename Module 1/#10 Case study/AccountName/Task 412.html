@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let arrNameCustomers=[]
+
+    while(true){
+        let choose=parseInt(prompt("Chọn theo danh sách dưới đây"+"\n"+
+            "1. Add Name Customer"+"\n"+
+            "2. Delete Customer"+"\n"+
+            "3. Hiển thị danh sách Customer"+"\n"+
+            "4. Thoát khỏi chương trình"));
+        if (choose===1) {
+                let  number1 = prompt("Nhập số lượng Customer muốn thêm");
+                for(var i=0; i<number1; i++){
+                    let nameCustomer = prompt("Nhập tên Customer "+(i+1));
+                    arrNameCustomers.push(nameCustomer)
+                }
+                let result=""
+                for (var i=0; i<arrNameCustomers.length; i++){
+                    result+=(i+1) + "."+ arrNameCustomers[i]+"\n"
+                }
+                alert(result);
+        }else if (choose===2){
+            let tam="";
+            for (var i=0; i<arrNameCustomers.length; i++){
+                tam +=(i+1)+"."+arrNameCustomers[i]+ "\n"
+            }
+            var number2 = prompt("Nhập tên Customer muốn delete" +"\n"+
+                tam)
+            for(var i=0; i<arrNameCustomers.length;i++){
+                if(number2===arrNameCustomers[i]){
+                    arrNameCustomers.splice(i,1)
+                }
+            }
+            let result=""
+            for (var i=0; i<arrNameCustomers.length; i++){
+                result+=(i+1) + "."+ arrNameCustomers[i]+"\n"
+            }
+            alert(result);
+
+        }else if (choose===3){
+            arrNameCustomers.sort()
+            let result=""
+            for (var i=0; i<arrNameCustomers.length; i++){
+                result+=(i+1) + "."+ arrNameCustomers[i]+"\n"
+            }
+            alert(result);
+        }else if (choose=4){
+            break
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>

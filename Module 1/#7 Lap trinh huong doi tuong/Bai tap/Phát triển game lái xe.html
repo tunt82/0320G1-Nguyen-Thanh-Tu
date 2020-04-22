@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<img id="moveLeftRight" src="https://www.carviet.vn/upload/images/so-do-vi-tri-lap-dat-camera-360-oto.jpg" width="200" height="150" style="position: absolute ; top: 20px ; left: 20px">
+
+<body onload="docReady()">
+
+<script>
+    function nhanSangPhai() {
+        let x = document.getElementById("moveLeftRight");
+        x.style.left = parseInt(x.style.left) + 5 + "px";
+
+    }
+    function nhanSangTrai() {
+        let x = document.getElementById("moveLeftRight");
+        x.style.left = parseInt(x.style.left) - 5 + "px";
+
+    }
+    function nhanLenTren() {
+        let x = document.getElementById("moveTopDown");
+        x.style.top = parseInt(x.style.top) - 5 + "px";
+
+    }
+    function nhanXuongDuoi() {
+        let x = document.getElementById("moveTopDown");
+        x.style.top = parseInt(x.style.top) + 5 + "px";
+
+    }
+
+
+
+    function moveSelection(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                nhanSangTrai();
+                break ;
+            case 39:
+                nhanSangPhai() ;
+                break ;
+            case 38 :
+                nhanLenTren() ;
+                break ;
+            case 40 :
+                nhanXuongDuoi() ;
+                break ;
+
+        }
+
+    }
+    function docReady() {
+        window.addEventListener('keydown', moveSelection)
+
+    }
+
+
+</script>
+
+</body>
+</html>
+
+<img id="moveTopDown" src="https://www.carviet.vn/upload/images/so-do-vi-tri-lap-dat-camera-360-oto.jpg" width="200" height="150" style="position: absolute ; top: 20px ; left: 20px">
