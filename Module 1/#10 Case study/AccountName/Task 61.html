@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let classQuanLy=function () {
+        this.name;
+        this.cmnd;
+        // this.birthday=birthday;
+        // this.email=email;
+        // this.address=address;
+        // this.typeService=typeService;
+        // this.typeRoom=typeRoom;
+        // this.discount=discount;
+        // this.quantityIncluded=quantityIncluded;
+        // this.renDays=renDays;
+        // this.totalPay=totalPay;
+
+        this.setName=function(){
+            let name= prompt("Input name: ") ;
+            regex=/^[a-zA-z ]{2,15}$/;
+            let check=true;
+            while (check){
+                let checkFomat=regex.test(name);
+                if(checkFomat){
+                    check=false;
+                }else {
+                    name=prompt("Bạn nhập sai tên, vui lòng nhập lại tên: ") ;
+                    check=true;
+                }
+            }
+            this.name=name;
+        }
+        this.setCmnd=function(){
+            let cmnd= prompt("Input CMND: ") ;
+            regex=/^[0-9]{9}$/;
+            let check=true;
+            while (check){
+                let checkFomat=regex.test(cmnd);
+                if(checkFomat){
+                    check=false;
+                }else {
+                    cmnd=prompt("Bạn nhập sai CMND, vui lòng nhập lại số CMND: ") ;
+                    check=true;
+                }
+            }
+            this.cmnd=cmnd;
+        }
+
+
+    }
+
+
+    // function nhapBirthday(){
+    //     let birthday= prompt("Input birthday: ") ;
+    //     regex=/^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/;
+    //     let check=true;
+    //     while (check){
+    //         let checkFomat=regex.test(birthday);
+    //         if(checkFomat){
+    //             check=false;
+    //         }else {
+    //             birthday=prompt("Bạn nhập sai ngày tháng năm sinh, vui lòng nhập lại số birthday: ") ;
+    //             check=true;
+    //         }
+    //     }
+    //     return birthday;
+    // }
+    // function nhapEmail(){
+    //     let email= prompt("Input email: ") ;
+    //     regex=/^[a-z0-9_]{1,}\@gmail.com$/;
+    //     let check=true;
+    //     while (check){
+    //         let checkFomat=regex.test(email);
+    //         if(checkFomat){
+    //             check=false;
+    //         }else {
+    //             email=prompt("Bạn nhập sai email, vui lòng nhập lại email: ") ;
+    //             check=true;
+    //         }
+    //     }
+    //     return email;
+    // }
+    // function nhapAddress(){
+    //     let address= prompt("Input address: ") ;
+    //     regex=/^[a-zA-Z, 0-9\/]{1,}$/;
+    //     let check=true;
+    //     while (check){
+    //         let checkFomat=regex.test(address);
+    //         if(checkFomat){
+    //             check=false;
+    //         }else {
+    //             address=prompt("Bạn nhập sai address, vui lòng nhập lại address: ") ;
+    //             check=true;
+    //         }
+    //     }
+    //     return address;
+    // }
+    // function nhapTypeService(){
+    //     let typeService=""
+    //     let choose= prompt("Chọn typeService"+"\n"+
+    //                             "1. Villa"+"\n"+
+    //                             "2. House"+"\n"+
+    //                             "3. Room") ;
+    //     let dichVu=["Villa","House","Room"];
+    //     typeService=dichVu[choose-1];
+    //     return typeService;
+    // }
+
+    // let name=nhapName()
+    // let cmnd=nhapCmnd()
+    // let birthday=nhapBirthday()
+    // let email=nhapEmail()
+    // let address=nhapAddress()
+    // let typeService=nhapTypeService()
+
+
+
+
+    // let cmnd = prompt("Input cmnd: ")
+    // let birthday = prompt("Input birthday: ") ;
+    // let email = prompt("Input email: ") ;
+    // let address = prompt("Input address: ") ;
+    // let typeService = prompt("Input typeService: ") ;
+    // let typeRoom = prompt("Input typeRoom: ") ;
+    // let discount = prompt("Input discount: ") ;
+    // let quantityIncluded = prompt("Input quantityIncluded: ") ;
+    // let renDays = prompt("Input renDays: ") ;
+
+    let customer=new classQuanLy()
+    customer.setName()
+    customer.setCmnd()
+
+    a=customer.name;
+    b=customer.cmnd
+
+    alert(a)
+    alert(b)
+
+
+    // name,cmnd,birthday,email,address,typeService,typeRoom,discount,quantityIncluded,renDays,totalPay
+</script>
+
+</body>
+</html>

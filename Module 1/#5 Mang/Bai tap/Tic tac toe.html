@@ -10,9 +10,13 @@
 
 <script>
    let co = document.getElementById("caro")
-   let banco=[]
+   let banco=new Array()
    for(var i=0; i<10; i++){
-       banco[i]= ["   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","   ","   "];
+       banco[i]=new Array()
+       for (var j=0; j<10; j++){
+           banco[i][j]="0";
+       }
+
    }
 
    function display(){

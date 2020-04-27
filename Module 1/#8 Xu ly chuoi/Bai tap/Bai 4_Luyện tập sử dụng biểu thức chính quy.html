@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkMaSo(chuoi,dieuKien){
+        patt=dieuKien;
+        if(patt.test(chuoi)){
+            return true
+        }else
+            return  false
+    }
+
+    let duLieu=["a1b2","a3b4","a4b5","a5b6"];
+    let regex= /^[a-z0-9]{4}$/;
+    let maso = prompt("Nhập mã số bảo mật \"a1b2\",\"a3b4\",\"a4b5\",\"a5b6\"")
+
+    let checked=true
+    let checkFomat;
+    let checkPass=true;
+    while (checked){
+        checkFomat=checkMaSo(maso,regex);
+        if(checkFomat){
+            for(var i=0; i<duLieu.length; i++) {
+                if (maso === duLieu[i]) {
+                    alert("Truy cập thành công");
+                    checked = false;
+                    checkPass=true;
+                    break
+                }else{
+                    checkPass=false;
+                }
+            }
+
+        }else {checked = true;
+               maso = prompt("Nhập sai format! Vui lòng nhập lại")
+        }
+        if ((checkPass===false)){
+            maso = prompt("Mã số sai! Vui lòng nhập lại")
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str=prompt("Nhập chuỗi");
+    alert(str)
+
+    let temp="";
+    for(var i=0; i<str.length; i++){
+        if(str.charAt(i)===" "){
+            continue
+        }
+        temp+=str.charAt(i)
+
+    }
+    str=temp
+    let soTu=str.length
+
+    alert("Chuỗi: "+str+" có "+soTu+" ký tự")
+
+
+
+
+</script>
+</body>
+</html>

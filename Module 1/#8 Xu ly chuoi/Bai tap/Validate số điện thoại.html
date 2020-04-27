@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let sdt="(84)-(0978489648)"
+    let patt=/^\([8][4]\)*-\([0-9]{10}\)$/
+    let a=patt.test(sdt)
+
+    document.write(a+"<br>")
+
+    function checkMaLop(malop) {
+        regexp = /^[CAP]{1}[0-9]{4}[G-M]{1}$/
+        if (regexp.test(malop)){
+            return true
+        }
+        return false
+    }
+    let malop = "A0325H"
+    let b= checkMaLop(malop)
+
+
+    document.write(b)
+
+
+
+</script>
+
+</body>
+</html>

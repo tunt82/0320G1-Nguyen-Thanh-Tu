@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            position: absolute;
+            top: 70px;
+            left: 100px;
+            border-collapse: collapse;
+            width: 500px;
+            height: 100px;
+        }
+
+        table, th, td {
+            border: 1px solid #2e37d3;
+        }
+    </style>
+</head>
+<body>
+<script>
+    let classBoard = function (row, col) {
+        this.row = row;
+        this.col = col;
+        this.array = []
+        this.innitArray = function () {
+            for (var i = 0; i < this.row; i++) {
+                this.array[i] = new Array()
+                for (j = 0; j < this.col; j++) {
+                    this.array[i][j] = "1"
+                }
+            }
+
+        }
+        this.draw = function () {
+            let table = "<table>";
+            for (let i = 0; i < this.row; i++) {
+                table += "<tr>";
+                for (let j = 0; j < this.col; j++) {
+                    table += "<td height='30' width='40' align='center' onclick=play(" + i + "," + j + ")>" + this.array[i][j] + "</td>"
+                }
+                table+="</tr>"
+            }
+            table += "</table>";
+            document.write(table)
+        }
+        this.playGame = function (i, j, char) {
+            this.array[i][j] = char;
+            document.body.innerHTML=""
+            document.write(this.draw())
+        }
+
+    }
+
+    function play(i, j) {
+        if (board.array[i][j] != "X" && board.array[i][j] != "O") {
+            if (count % 2 === 0) {
+                board.playGame(i, j, "X");
+            } else {
+                board.playGame(i, j, "O")
+            }
+            count++
+        } else {
+            alert("Ô này đã được đánh. Yêu cầu bạn đánh ô khác.")
+        }
+    }
+    let count =0;
+    board = new classBoard(15, 20)
+    board.innitArray()
+    board.draw()
+    // board.playGame()
+
+</script>
+
+
+</body>
+</html>

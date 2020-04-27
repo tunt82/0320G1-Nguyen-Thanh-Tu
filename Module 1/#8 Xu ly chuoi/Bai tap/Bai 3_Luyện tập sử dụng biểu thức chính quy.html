@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+    function checkChuoi(chuoi,dieuKien){
+        patt=dieuKien;
+        if(patt.test(chuoi)){
+            return true
+        }else
+            return  false
+    }
+
+    function demKyTuSoNguyen(str,dk){
+        let count=0
+        let kyTu=""
+        for (var i=0; i<str.length; i++){
+            if(checkChuoi(str.charAt(i),dk)){
+                count++;
+                kyTu+=str.charAt(i);
+            }
+        }
+        return count
+    }
+    function timSoNguyen(str,dk){
+        let kyTu=""
+        for (var i=0; i<str.length; i++){
+            if(checkChuoi(str.charAt(i),dk)){
+                kyTu+=str.charAt(i);
+            }
+        }
+        return kyTu;
+    }
+    let str1="Tuae"
+    let dk1=/^[aeoiu]$/;
+    let count1= demKyTuSoNguyen(str1,dk1)
+    let soNguyen= timSoNguyen(str1,dk1)
+
+
+
+    document.write("Có "+count1+" ký tự số nguyên là: "+ soNguyen)
+
+
+    // * 5 nguyên âm: a , e , o , i , u .
+    //* 21 phụ âm: b , c , d , f , g , h , j , k , l , m ,  n , p , q , r , s , t , v , w , x , y , z .
+
+</script>
+</body>
+</html>

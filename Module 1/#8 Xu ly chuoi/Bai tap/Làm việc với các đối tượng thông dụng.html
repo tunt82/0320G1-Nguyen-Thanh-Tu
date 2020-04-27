@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var day = new Date(1992,11,5);
+    var today = new Date();
+
+    day.getDate();
+    day.getDay();
+    day.getFullYear();
+    day.getYear();
+    day.getHours();
+    day.getMilliseconds();
+    day.getMinutes();
+    day.getMonth();
+    day.getSeconds();
+    day.getTime();
+
+
+    let year1 =day.getFullYear()
+    let year2 =today.getFullYear()
+    let month1=day.getFullYear()*12
+    let month2=today.getFullYear()*12
+
+    year=year2-year1
+    month=month2-month1
+    document.write(year)
+
+
+</script>
+</body>
+</html>
