@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    let soNguyenTo=" "
+    let check=true
+    count=0
+
+    for(var i=3;;i++){
+        check=true
+        for (var j=2; j<i; j++){
+            if(i % j == 0){
+                check=false
+                break
+            }
+        }
+        if(check == true){
+            soNguyenTo+=i
+            count++
+        }
+        if(count == 10){
+            break
+
+        }
+
+
+    }
+
+    alert("Có "+ count +" số nguyên tố là" + soNguyenTo)
+
+</script>
+
+</body>
+</html>

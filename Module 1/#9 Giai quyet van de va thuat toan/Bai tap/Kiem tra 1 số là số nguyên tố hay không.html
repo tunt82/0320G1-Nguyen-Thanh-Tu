@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function checkSnt(num){
+        let check=true;
+        if(num===2){
+            check=false
+        }
+        for(var i=2;i<num; i++) {
+            if(num % i==0){
+                alert("Số "+ num+" không phải là số nguyên tố")
+                break;
+            }else {
+                check=false;
+            }
+        }
+        if(check==false){
+            alert("Số "+ num+" là số nguyên tố")
+        }
+
+    }
+
+    checkSnt(9)
+
+
+</script>
+
+</body>
+</html>
