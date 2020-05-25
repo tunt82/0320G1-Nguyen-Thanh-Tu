@@ -1,56 +1,52 @@
 package furamaResort.controllers;
 
-import furamaResort.models.Room;
-import furamaResort.models.Villa;
-import furamaResort.models.House;
+import furamaResort.common.CheckInputAndAddCustomerInfor;
+import furamaResort.models.*;
 import furamaResort.common.FuncWriteAndReadFileCSV;
+import furamaResort.sort.SortForCustomer;
 import furamaResort.validation.Validation;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class MainController {
     public static void displayMainMenu() {
         int choice = -1;
         Scanner input = new Scanner(System.in);
-        while (choice != 0) {
-            System.out.println("Menu");
-            System.out.println("1. Add New Services");
-            System.out.println("2. Show Services");
-            System.out.println("3. Add New Customer");
-            System.out.println("4. Show Information of Customer");
-            System.out.println("5. Add New Booking");
-            System.out.println("6. Show Information of Employee");
-            System.out.println("7. Exit");
-            System.out.println("Enter your choice: ");
-            choice = input.nextInt();
-            switch (choice) {
-                case 1:
-                    menuAddNewService();
+        System.out.println("Menu");
+        System.out.println("1. Add New Services");
+        System.out.println("2. Show Services");
+        System.out.println("3. Add New Customer");
+        System.out.println("4. Show Information of Customer");
+        System.out.println("5. Add New Booking");
+        System.out.println("6. Show Information of Employee");
+        System.out.println("7. Exit");
+        System.out.println("Enter your choice: ");
+        choice = input.nextInt();
+        switch (choice) {
+            case 1:
+                menuAddNewService();
+                break;
+            case 2:
+                menuShowService();
+                break;
+            case 3:
+                AddNewCustomer();
+                break;
+            case 4:
+                showInformationCustomer();
+                break;
+            case 5:
+                addNewBooking();
+                break;
+                case 6:
+                    ShowInformationEmployee();
                     break;
-                case 2:
-                    menuShowService();
-                    break;
-//                case 3:
-//                    AddNewCustomer;
-//                    break;
-//                case 4:
-//                    ShowInformationCustomer;
-//                    break;
-//                case 5:
-//                    AddNewBooking;
-//                    break;
-//                case 6:
-//                    ShowInformationEmployee;
-//                    break;
-                case 7:
-                    System.exit(7);
-                    break;
-                default:
-                    System.out.println("No choice!");
+            case 7:
+                System.exit(7);
+                break;
+            default:
+                System.out.println("No choice!");
 
-            }
         }
     }
     public static void menuAddNewService() {
@@ -79,7 +75,7 @@ public class MainController {
                     displayMainMenu();
                     break;
                 case 5:
-                    System.exit(7);
+                    System.exit(5);
                     break;
                 default:
                     System.out.println("No choice!");
@@ -269,22 +265,27 @@ public class MainController {
                 checkTypeRent=scanner.nextLine();
             }
             room.setTypeOfRent(checkTypeRent);
-            System.out.print("Enter room of standard: ");
-            room.setRoomStandard(scanner.nextLine());
-            System.out.print("Enter description convenient: ");
-            room.setDescriptionConvenient(scanner.nextLine());
-            System.out.print("Enter number of floor: ");
-            String checkFloorNumber=scanner.nextLine();
-            while (!Validation.checkFloorNumber(checkFloorNumber)){
-                System.out.println("Number of floor was wrong! Please try again. (Value >0");
-                checkFloorNumber=scanner.nextLine();
-            }
-            room.setFloorNumber(Integer.parseInt(checkFloorNumber));
-            houses.add(house);
+            System.out.print("Enter free service: ");
+            room.setFreeService(scanner.nextLine());
+            rooms.add(room);
         }
-        FuncWriteAndReadFileCSV.writeCsvFileHouse(houses);
+        FuncWriteAndReadFileCSV.writeCsvFileRoom(rooms);
         System.out.println("Add new list villas complete ");
         menuAddNewService();
+    }
+    public static void AddNewCustomer(){
+        Scanner scanner=new Scanner(System.in);
+        ArrayList<Customer> customers=new ArrayList<>();
+        Customer customer=new Customer();
+        System.out.println("Enter the amount of customer which you want input: ");
+        int lenght=Integer.parseInt(scanner.nextLine());
+        for (int i=0; i<lenght; i++){
+            customer= CheckInputAndAddCustomerInfor.addNewCustomer();
+            customers.add(customer);
+        }
+        FuncWriteAndReadFileCSV.writeCsvFileCustomer(customers);
+        System.out.println("Add new list customers complete ");
+        displayMainMenu();
     }
     public static void menuShowService() {
         Scanner scanner = new Scanner(System.in);
@@ -308,22 +309,22 @@ public class MainController {
                 showHouseService();
                 break;
             }
-////            case 3: {
-////                showRoomService();
-////                break;
-////            }
-////            case 4: {
-////                showAllNameVillaNotDuplicate();
-////                break;
-////            }
-////            case 5: {
-////                showAllNameHouseNotDuplicate();
-////                break;
-////            }
-////            case 6: {
-////                showAllNameRoomNotDuplicate();
-////                break;
-////            }
+            case 3: {
+                showRoomService();
+                break;
+            }
+            case 4: {
+                showAllNameVillaNotDuplicate();
+                break;
+            }
+            case 5: {
+                showAllNameHouseNotDuplicate();
+                break;
+            }
+            case 6: {
+                showAllNameRoomNotDuplicate();
+                break;
+            }
 //
 //            case 7: {
 //                displayMainMenu();
@@ -355,18 +356,199 @@ public class MainController {
 
     }
     public static void showRoomService(){
-        ArrayList<House>houses=FuncWriteAndReadFileCSV.readCsvFileHouse();
-        for (House house : houses) {
+        ArrayList<Room>rooms=FuncWriteAndReadFileCSV.readCsvFileRoom();
+        for (Room room : rooms) {
             System.out.println("--------------------------------------------------");
-            System.out.println(house.ShowInfor());
+            System.out.println(room.ShowInfor());
             System.out.println("--------------------------------------------------");
         }
         displayMainMenu();
 
     }
-    public static void main (String[]args){
-        displayMainMenu();
+    public static void showAllNameVillaNotDuplicate(){
+        ArrayList<Villa>villas=FuncWriteAndReadFileCSV.readCsvFileVilla();
+        TreeSet<Villa>villaTreeSet=new TreeSet<>();
+        villaTreeSet.addAll(villas);
+        for (Villa villa:villaTreeSet){
+            System.out.println(villa);
+        }
+        menuShowService();
+
+    }
+    public static void showAllNameHouseNotDuplicate(){
+        ArrayList<House>houses=FuncWriteAndReadFileCSV.readCsvFileHouse();
+        TreeSet<House>houseTreeSet=new TreeSet<>();
+        houseTreeSet.addAll(houses);
+        System.out.println(houseTreeSet);
+        menuShowService();
+
+    }
+    public static void showAllNameRoomNotDuplicate(){
+        ArrayList<Room>rooms=FuncWriteAndReadFileCSV.readCsvFileRoom();
+        TreeSet<Room>roomTreeSet=new TreeSet<>();
+        roomTreeSet.addAll(rooms);
+        System.out.println(roomTreeSet);
+        menuShowService();
+
     }
 
-}
+    public static void showInformationCustomer(){
+        ArrayList<Customer>customers=FuncWriteAndReadFileCSV.readCsvFileCustomer();
+        Collections.sort(customers,new SortForCustomer());
+        for (Customer customer : customers) {
+            System.out.println(customer.showInfor());
+        }
+        displayMainMenu();
 
+    }
+    public static void ShowInformationEmployee(){
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Employee> listEmployee = new ArrayList<Employee>();
+        listEmployee = FuncWriteAndReadFileCSV.readCsvFileEmployee();
+        Map<Integer, Employee> map = new HashMap<>();
+        int i = 0;
+        for (Employee employee: listEmployee) {
+            i++;
+            map.put(i, employee);
+        }
+        Set<Integer> set = map.keySet();
+        for (Integer key: set){
+            System.out.println(key + " "+ map.get(key));
+        }
+        System.out.println("Enter to continue");
+        scanner.nextLine();
+        displayMainMenu();
+    }
+    private static void addNewBooking() {
+        int choice = -1;
+        Scanner input = new Scanner(System.in);
+        Customer customer=new Customer();
+        System.out.println("Booking Menu");
+        System.out.println("1. Booking Villa");
+        System.out.println("2. Booking House");
+        System.out.println("3. Booking Room");
+        System.out.println("4. Exit");
+        System.out.println("Enter your choice: ");
+        choice = input.nextInt();
+        switch (choice) {
+            case 1: {
+                List<Customer> customers;
+                customers = FuncWriteAndReadFileCSV.readCsvFileCustomer();
+                for (int i = 0; i < customers.size(); i++) {
+                    System.out.println("--------------------------------------------------");
+                    System.out.println("No" + (i));
+                    System.out.println(customers.get(i).showInfor());
+                }
+                System.out.print("Enter number of customer:");
+                int index=Integer.parseInt(input.next());
+                List<Villa> villas;
+                villas = FuncWriteAndReadFileCSV.readCsvFileVilla();
+                for (int i = 0; i < villas.size(); i++) {
+                    System.out.println("--------------------------------------------------");
+                    System.out.println("No" + (i));
+                    System.out.println(villas.get(i).ShowInfor());
+                }
+                System.out.print("Enter choice booking Villa:");
+                Villa villa = villas.get(input.nextInt());
+                customers.get(index).setUseService(villa);
+                FuncWriteAndReadFileCSV.writeCsvFileBooking(customers.get(index));
+                System.out.println("Done, enter to continue");
+                input.nextLine();
+                addNewBooking();
+                break;
+            }
+//                case 2:
+//                    showHouseService();
+//                    break;
+//                case 3:
+//                    showRoomService();
+//                    break;
+                case 4:
+                    System.exit(0);
+                    break;
+            default:
+                System.out.println("No choice!");
+        }
+
+        displayMainMenu();
+//        List<Customer> customers;
+//        customers = FuncWriteAndReadFileCSV.readCsvFileCustomer();
+//        Collections.sort(customers, new SortForCustomer());
+//        for (int i = 0; i < customers.size(); i++) {
+//            System.out.println("--------------------------------------------------");
+//            System.out.println((i + 1) + ". " + customers.get(i).showInfor());
+//        }
+//        System.out.print("Enter your choice: ");
+//        int choiceCustomer = scanner.nextInt();
+//        while (choiceCustomer < 1 || choiceCustomer > customers.size()) {
+//            System.out.println("Size of list Customer: " + customers.size() + ", choice: " + choiceCustomer);
+//            System.out.print("Enter your choice: ");
+//            choiceCustomer = scanner.nextInt();
+//        }
+//        Customer customer = customers.get(choiceCustomer - 1);
+//        System.out.println("1. Booking Villa\n2. Booking House \n3. Booking Room");
+//        int choiceBooking = scanner.nextInt();
+//        while (choiceBooking < 1 || choiceBooking > 3) {
+//            System.out.println("Error!");
+//            System.out.println();
+//            System.out.println("1. Booking Villa\n2. Booking House \n3. Booking Room");
+//            choiceBooking = scanner.nextInt();
+//        }
+//        switch (choiceBooking) {
+//            case 1: {
+//                List<Villa> villas;
+//                villas = FuncWriteAndReadFileCSV.readCsvFileVilla();
+//                for (int i = 0; i < villas.size(); i++) {
+//                    System.out.println("--------------------------------------------------");
+//                    System.out.println("No" + (i + 1));
+//                    System.out.println(villas.get(i).ShowInfor());
+//                }
+//                System.out.print("Enter choice booking Villa:");
+//                Villa villa = villas.get(scanner.nextInt() - 1);
+//                customer.setUseService(villa);
+//                break;
+//            }
+//            case 2: {
+//                List<House> houses;
+//                houses = FuncWriteAndReadFileCSV.readCsvFileHouse();
+//                for (int i = 0; i < houses.size(); i++) {
+//                    System.out.println("--------------------------------------------------");
+//                    System.out.println("No" + i + 1);
+//                    System.out.println(houses.get(i).ShowInfor());
+//                }
+//                System.out.print("Enter choice booking House:");
+//                House house = houses.get(scanner.nextInt() - 1);
+//                customer.setUseService(house);
+//                break;
+//            }
+//            case 3: {
+//                List<Room> rooms;
+//                rooms = FuncWriteAndReadFileCSV.readCsvFileRoom();
+//                for (int i = 0; i < rooms.size(); i++) {
+//                    System.out.println("--------------------------------------------------");
+//                    System.out.println("No" + i + 1);
+//                    System.out.println(rooms.get(i).ShowInfor());
+//                }
+//                System.out.print("Enter choice booking Room: ");
+//                Room room = rooms.get(scanner.nextInt() - 1);
+//                customer.setUseService(room);
+//                break;
+//            }
+//            default: {
+//                displayMainMenu();
+//            }
+//        }
+//        List<Customer> listBooking = FuncWriteAndReadFileCSV.readCsvFileBooking();
+//        listBooking.add(customer);
+//        FuncWriteAndReadFileCSV.writeCsvFileBooking(listBooking);
+//        displayMainMenu();
+
+    }
+
+    public static void main (String[]args){
+        while (true){
+            displayMainMenu();
+        }
+
+    }
+}

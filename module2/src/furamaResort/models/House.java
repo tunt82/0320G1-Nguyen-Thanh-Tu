@@ -1,6 +1,8 @@
 package furamaResort.models;
 
-public class House extends Services {
+import java.util.Objects;
+
+public class House extends Services implements Comparable<House> {
     private String roomStandard;
     private String descriptionConvenient;
     private int floorNumber;
@@ -48,4 +50,8 @@ public class House extends Services {
                 '}';
     }
 
+    @Override
+    public int compareTo(House o) {
+        return this.getNameService().compareTo(o.getNameService());
+    }
 }

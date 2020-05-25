@@ -1,5 +1,7 @@
 package furamaResort.models;
 
+import java.util.Objects;
+
 public abstract class Services {
     private String id;
     private String codeService;
@@ -90,5 +92,24 @@ public abstract class Services {
                 ", rentalCost=" + rentalCost +
                 ", maximumNumberOfPeople=" + maximumNumberOfPeople +
                 ", typeOfRent='" + typeOfRent + '\''+", ";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Services)) return false;
+        Services services = (Services) o;
+        return rentalArea == services.rentalArea &&
+                Double.compare(services.rentalCost, rentalCost) == 0 &&
+                maximumNumberOfPeople == services.maximumNumberOfPeople &&
+                id.equals(services.id) &&
+                codeService.equals(services.codeService) &&
+                nameService.equals(services.nameService) &&
+                typeOfRent.equals(services.typeOfRent);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, codeService, nameService, rentalArea, rentalCost, maximumNumberOfPeople, typeOfRent);
     }
 }

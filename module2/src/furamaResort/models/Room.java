@@ -1,6 +1,8 @@
 package furamaResort.models;
 
-public class Room extends Services {
+import java.util.Objects;
+
+public class Room extends Services implements Comparable<Room> {
     private String freeService;
 
     public Room() {
@@ -27,5 +29,24 @@ public class Room extends Services {
         return "Room{" + super.toString() +
                 "freeService='" + freeService + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Room)) return false;
+        if (!super.equals(o)) return false;
+        Room room = (Room) o;
+        return freeService.equals(room.freeService);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), freeService);
+    }
+
+    @Override
+    public int compareTo(Room o) {
+        return this.getNameService().compareTo(o.getNameService());
     }
 }
