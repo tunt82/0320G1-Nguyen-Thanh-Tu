@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Provinces</title>
+    <style type="text/css">
+        h3{background-color: blue; color: white; padding: 10px 0 10px 20px;}
+        footer{margin: 10px 0;}
+
+        #province {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #customer {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #province td, #province th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customer td, #customer th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #province tr:nth-child(even){background-color: #f2f2f2;}
+
+        #province tr:hover {background-color: #ddd;}
+
+        #province th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #customer tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customer tr:hover {background-color: #ddd;}
+
+        #customer th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        input[type=text],input[type=email]{
+            width: 100%;
+            padding: 12px 0px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 300px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        .notify span{font-size: 15px; color: blue;}
+    </style>
+</head>
+<body>
+<h1 style="color: brown">Provinces</h1>
+<h2><a th:href="@{/create-provinces}">Create New Province</a></h2>
+<h2><p th:text="${message}" style="color: darkred"></p></h2>
+<table border="1" id="province">
+    <tr>
+        <th>Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <th:block th:each="province : ${provinces}">
+        <tr>
+           <td th:text="${province.name}"></td>
+            <td><a th:href="@{/edit-province/__${province.id}__}">Edit</a></td>
+            <td><a th:href="@{/delete-province/__${province.id}__}">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+<br/>
+<br/>
+<h1 style="color: brown">Customers</h1>
+<h2><a th:href="@{/customers/create-customer}">Create New Customer</a></h2>
+<h2><p th:text="${message2}" style="color: darkred"></p></h2>
+<table border="1" id="customer">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Province</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <th:block th:each="customer : ${customers}">
+        <tr>
+        <td th:text="${customer.firstName}"></td>
+        <td th:text="${customer.lastName}"></td>
+        <td th:text="${customer.province.name}"></td>
+        <td><a th:href="@{/customers/edit-customer/__${customer.id}__}">Edit</a></td>
+        <td><a th:href="@{/customers/delete-customer/__${customer.id}__}">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+<footer th:fragment="footer">
+    &copy; 2020 BachCheSenior
+</footer>
+</body>
+</html>

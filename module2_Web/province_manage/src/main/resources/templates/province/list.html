@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            margin-left: 10px;
+            width: 95%;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<table id="customers">
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">EDIT</th>
+        <th scope="col">DELETE</th>
+        <th scope="col">VIEW</th>
+    </tr>
+    <tr th:each="pro : ${province}">
+        <td th:text="${pro.getId()}"></td>
+        <td th:text="${pro.getName()}"></td>
+        <td><a th:href="@{/province/edit/{id}(id=${pro.getId()})}">Edit</a></td>
+        <td><a th:href="@{/province/delete/{id}(id=${pro.getId()})}">Delete</a></td>
+        <td><a th:href="@{/province/view/{id}(id=${pro.getId()})}">View</a></td>
+    </tr>
+</table>
+
+</body>
+</html>
