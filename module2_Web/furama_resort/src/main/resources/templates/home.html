@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #header {
+            background-color:blue;
+            color:white;
+            text-align:center;
+            padding:5px;
+            background-image: url("https://news.gearvn.com/wp-content/uploads/2020/03/14-gettyimages-1176555906_resized-scaled.jpg");
+        }
+        #nav {
+            line-height:30px;
+            background-color:#eeeeee;
+            height:480px;
+            width:170px;
+            float:left;
+            padding:5px;
+        }
+        #section {
+            width:350px;
+            float:left;
+            padding:10px;
+        }
+        #footer {
+            background-color:black;
+            color:white;
+            clear:both;
+            text-align:center;
+            padding:5px;
+        }
+        body {
+            background-image: url("https://msmobile.com.vn/upload_images/images/hinh-nen-dep-cho-may-tinh-win-10-5.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div>
+        <div id="header">
+            <h1>FURAMA RESORT</h1>
+            <img style="position: absolute;left: 20px;top: 28px" src="https://james.codegym.vn/pluginfile.php/1/theme_remui/logo/1588996151/Codegym%20X.png"
+                 height="50" width="200">
+
+        </div>
+        <div style="position: absolute;right: 20px;top: 20px;background:chocolate" >
+
+            <a href="/user/signIn" class="btn btn-danger">ĐĂNG KÝ</a>
+            <a href="/home/logIn" class="btn btn-primary">ĐĂNG NHẬP</a>
+        </div>
+
+    </div>
+</header>
+
+<div style="background: aqua;font-size: 30px; text-align: center">
+    Home &emsp;&emsp; Dịch vụ &emsp;&emsp; Tìm kiếm &emsp;&emsp; Review
+</div>
+
+<div id="nav">
+    <p><a href="/customer/create-customer">Add new customer</a></p>
+    <p> Section 2 </p>
+    <p> Section 3 </p>
+    <p> Section 4 </p>
+    <p> Section 5 </p>
+    <p> Section 6 </p>
+    <p> Section 7 </p>
+    <p> Section 8 </p>
+    <p> Section 9 </p>
+    <p> Section 10 </p>
+</div>
+
+
+
+<div id="section">
+    <h2>HTML</h2>
+    <p>
+        Chúng ta đã nghe nói nhiều về lập trình web với HTML. Vậy, <strong>HTML là gì</strong> ? HTML là ngôn ngữ đánh dấu cho việc mô tả các tài liệu web (trang web).
+    </p>
+    <ul>
+        <li>HTML là viết tắt của <strong>H</strong>yper <strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage (Ngôn ngữ Đánh dấu Siêu văn bản)</li>
+        <li>Ngôn ngữ đánh dấu là một tập hợp các thẻ đánh dấu</li>
+        <li>Các tài liệu HTML được mô tả bằng các thẻ HTML</li>
+        <li>Mỗi thẻ HTML mô tả những nội dung khác nhau</li>
+    </ul>
+</div>
+
+<div id="footer">
+    Bản quyền © WebVN.com
+</div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</html>

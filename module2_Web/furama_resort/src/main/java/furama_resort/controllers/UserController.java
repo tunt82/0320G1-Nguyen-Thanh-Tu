@@ -1,42 +1,33 @@
-package province_manage.controllers;
+package furama_resort.controllers;
 
+import furama_resort.models.Customer;
+import furama_resort.models.Login;
+import furama_resort.models.User;
+import furama_resort.repositorys.CustomerRepository;
+import furama_resort.services.CustomerService;
+import furama_resort.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import province_manage.model.Customer;
-import province_manage.model.Login;
-import province_manage.model.User;
-import province_manage.repository.UserRepository;
-import province_manage.service.CustomerService;
-import province_manage.service.ProvinceService;
-import province_manage.service.UserService;
 
 @Controller
 @RequestMapping("user")
 public class UserController {
-    @GetMapping("create")
+    @GetMapping("signIn")
     public ModelAndView showFormRegister(){
         ModelAndView modelAndView=new ModelAndView("user/register");
-        modelAndView.addObject("user",new User());
+        modelAndView.addObject("customer",new Customer());
         return modelAndView;
     }
     @Autowired
-    UserService userService;
+    CustomerService customerService;
     @PostMapping("register")
-    public ModelAndView saveUser(@Validated @ModelAttribute("user") User user, BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
-            ModelAndView modelAndView=new ModelAndView("user/register");
-            return modelAndView;
-        }
-        userService.saveUser(user);
-        ModelAndView modelAndView = new ModelAndView("user/register");
+    public ModelAndView saveCustomer(@ModelAttribute("customer") Customer customer){
+        customerService.saveCustomer(customer);
+        ModelAndView modelAndView = new ModelAndView("home");
         return modelAndView;
     }
 
@@ -61,18 +52,18 @@ public class UserController {
 //    }
 
 
-    @GetMapping("list")
-    public ModelAndView showListUser(@PageableDefault(value = 2) Pageable pageable){
-        Page<User>listUser=userService.findAllUer(pageable);
-        ModelAndView modelAndView=new ModelAndView("user/listUser");
-        modelAndView.addObject("users",listUser);
-        return modelAndView;
-    }
-    @GetMapping("/delete/{id}")
-    public String deleteUser(@PathVariable("id") Long id, RedirectAttributes redirect){
-        userService.deleteUserById(id);
-        return "redirect:/user/list";
-    }
+//    @GetMapping("list")
+//    public ModelAndView showListUser(@PageableDefault(value = 2) Pageable pageable){
+//        Page<User> listUser=userService.findAllUer(pageable);
+//        ModelAndView modelAndView=new ModelAndView("user/listUser");
+//        modelAndView.addObject("users",listUser);
+//        return modelAndView;
+//    }
+//    @GetMapping("/delete/{id}")
+//    public String deleteUser(@PathVariable("id") Long id, RedirectAttributes redirect){
+//        userService.deleteUserById(id);
+//        return "redirect:/user/list";
+//    }
 
 
 //    @Autowired
