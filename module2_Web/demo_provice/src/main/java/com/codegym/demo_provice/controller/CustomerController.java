@@ -38,29 +38,29 @@ public class CustomerController {
         return  modelAndView;
     }
 
-//    @GetMapping("/create")
-//    public ModelAndView showFormCreateCustomer() {
-//        ModelAndView modelAndView=new ModelAndView("customer/create","customer",new Customer());
-//        modelAndView.addObject("provinces",provinceService.getAllProvince());
-//        return modelAndView;
-//    }
-//
-//    @PostMapping("/create")
-//    public String createCustomer(@Valid @ModelAttribute("customer")Customer customer, BindingResult bindingResult) {
-//        if(bindingResult.hasErrors()) {
-//
-//            return "customer/create";
-//        }
-//        if(customer==null) {
-//            return "404";
-//        }
-//        try {
-//            customerService.saveCustomer(customer);
-//        }catch (Exception e) {
-//            System.out.println(e.getMessage());
-//        }
-//        return "redirect:";
-//    }
+    @GetMapping("/create")
+    public ModelAndView showFormCreateCustomer() {
+        ModelAndView modelAndView=new ModelAndView("customer/create","customer",new Customer());
+        modelAndView.addObject("provinces",provinceService.getAllProvince());
+        return modelAndView;
+    }
+
+    @PostMapping("/create")
+    public String createCustomer(@Valid @ModelAttribute("customer")Customer customer, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) {
+
+            return "customer/create";
+        }
+        if(customer==null) {
+            return "404";
+        }
+        try {
+            customerService.saveCustomer(customer);
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return "redirect:";
+    }
 //
 //    @GetMapping("delete/{id}")
 //    public ModelAndView showFormDeleteCustomer(@PathVariable("id")Long id) {

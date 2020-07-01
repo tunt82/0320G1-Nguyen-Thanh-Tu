@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
     UserRepository userRepository;
     @Override
     public void saveUser(User user) {
-        user.setIs_delete(false);
+        user.setIsDelete(false);
         userRepository.save(user);
     }
 

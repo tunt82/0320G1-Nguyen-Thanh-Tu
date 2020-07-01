@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+    <header>
+        <div style="height: 80px;text-align: center;font-size: 40px;color: #1cff3c;font-style: italic;background-image: url(https://msmobile.com.vn/upload_images/images/hinh-nen-dep-cho-may-tinh-win-10-5.jpg)" )>BOOKING RESULT</div>
+    </header></br>
+<body>
+<a th:href="@{/service/bookingService/}" class="btn btn-primary">BACK TO BOOKING SERVICE LIST</a></br></br>
+<table class="table table-bordered table-striped" >
+    <thead >
+    <tr class="table-success">
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Amount</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each ="bookingServices : ${bookingService}">
+        <td th:text="${bookingServices.getKey().nameService}"></td>
+        <td th:text="${bookingServices.getKey().rentalCost}"></td>
+        <td><input type="text" th:value="${bookingServices.getValue().count}"></td>
+        <td th:></td>
+        <td> <a th:href="@{/delete/__${bookingServices.getKey().idService}__}"> Delete </a></td>
+    </tr>
+    </tbody>
+</table>
+<script>
+
+    function Nhan()
+    {
+        var rentTypeID = parseInt(document.getElementById("rentTypeID").value);
+        var serviceTypeID = parseInt(document.getElementById("serviceTypeID").value);
+
+        switch (serviceTypeID) {
+            case 1:serviceType_cost=500;
+                break;
+            case 2:serviceType_cost=400;
+                break;
+            case 3:serviceType_cost=300;
+                break;
+        }
+
+        switch (rentTypeID) {
+            case 1:rentType_cost=0.7;
+                break;
+            case 2:rentType_cost=1;
+                break;
+            case 3:rentType_cost=1.2;
+                break;
+            case 4:rentType_cost=1.5;
+                break;
+        }
+
+        document.getElementById("result").value = serviceType_cost*rentType_cost;
+    }
+</script>
+</body>
+</html>

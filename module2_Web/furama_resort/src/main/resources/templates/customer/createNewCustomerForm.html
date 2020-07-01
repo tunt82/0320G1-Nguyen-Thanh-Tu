@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>SIGN IN</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -17,8 +20,9 @@
 <div class="example">
     <div class="container">
         <div class="row">
-            <h2>SIGN IN FURAMA SYSTEM</h2>
-            <a href="/" class="btn btn-primary">Back to Home</a>
+            <h2 style="text-align: center">CUSTOMER INFORMATION REGISTER</h2>
+            <a href="/customer/customerList" class="btn btn-primary">BACK TO CUSTOMER LIST</a> </br></br>
+            <a href="/home/login" class="btn btn-primary">BACK TO HOME MENU</a>
             <form th:action="@{/customer/createNewCustomer}" th:object="${customer}" method="POST">
                 <div class="form-group">
                     <label>Account</label>
@@ -29,38 +33,36 @@
                     <input type="password" class="form-control" placeholder="Password" th:field="*{user.password}">
                 </div>
                 <div class="form-group">
+                    <label>Customer code</label>
+                    <input type="text" class="form-control" placeholder="KH-0 đến 9" th:field="*{customerCode}" >
+                    <td th:if="${#fields.hasErrors('customerCode')}" th:errors="*{customerCode}">Number Error</td>
+                </div>
+                <div class="form-group">
                     <label>Full Name</label>
                     <input type="text" class="form-control" placeholder="Name" th:field="*{name}" >
                 </div>
                 <div class="form-group">
                     <label>Birth Day</label>
-                    <input type="text" class="form-control" placeholder="DD/MM/YYYY" th:field="*{birthday}">
+                    <input type="date" class="form-control" placeholder="DD/MM/YYYY" th:field="*{birthday}">
                 </div>
-                <div class="form-group" >
+
+                <div class="form-group">
                     <label>Gender</label>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" value="" th:field="*{gender}">Gentlemen
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" value="" >Lady
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" value="" >LGBT
-                        </label>
-                    </div>
+                    <select name="cars" class="custom-select" th:field="*{gender}">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>Phone Number</label>
-                    <input type="text" class="form-control" placeholder="Phone" th:field="*{phone_number}">
+                    <input type="text" class="form-control" placeholder="Ex: 090xxxxxxx" th:field="*{phone_number}">
+                    <td th:if="${#fields.hasErrors('phone_number')}" th:errors="*{phone_number}">Number Error</td>
                 </div>
                 <div class="form-group">
                     <label>CMND</label>
-                    <input type="text" class="form-control" placeholder="CMND" th:field="*{cmnd}">
+                    <input type="text" class="form-control" placeholder="CMND:9 số hoặc 12 số" th:field="*{cmnd}">
+                    <td th:if="${#fields.hasErrors('cmnd')}" th:errors="*{cmnd}">Number Error</td>
                 </div>
                 <div class="form-group">
                     <label>Email</label>
@@ -68,7 +70,7 @@
                 </div>
                 <div class="form-group">
                     <label>Type Customer</label>
-                    <select name="cars" class="custom-select" th:field="*{type_customer}">
+                    <select name="cars" class="custom-select" th:field="*{typeCustomer}">
                         <!--                            <option selected>Custom Select Option</option>-->
                         <option value="Diamond">Diamond</option>
                         <option value="Platinum">Platinum</option>
@@ -86,5 +88,14 @@
         </div>
     </div>
 </div>
+
+<script>
+    $('#birth').datepicker({
+        format:'dd/mm/yyyy',
+        uiLibrary:'bootstrap4',
+        autoclose: true,
+        todayHighlight: true
+    })
+</script>
 </body>
 </html>

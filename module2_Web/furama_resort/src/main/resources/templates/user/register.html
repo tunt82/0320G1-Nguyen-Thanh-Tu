@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row">
             <h2>SIGN IN FURAMA SYSTEM</h2>
-            <a href="/" class="btn btn-primary">Back to Home</a>
+            <a href="/home" class="btn btn-primary">Back to Home</a>
             <form th:action="@{/user/register}" th:object="${customer}" method="POST">
                 <div class="form-group">
                     <label>Account</label>
@@ -68,7 +68,7 @@
                 </div>
                 <div class="form-group">
                     <label>Type Customer</label>
-                        <select name="cars" class="custom-select" th:field="*{type_customer}">
+                        <select name="cars" class="custom-select" th:field="*{typeCustomer}">
 <!--                            <option selected>Custom Select Option</option>-->
                             <option value="Diamond">Diamond</option>
                             <option value="Platinum">Platinum</option>
